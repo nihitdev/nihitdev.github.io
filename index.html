@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nihit's corner of the internet — projects, experiments, and things being built.">
+  <meta name="theme-color" content="#0b0f14">
+  <title>Nihit — Builder, Rustacean, terminal enjoyer</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Go to top">
+      <span class="brand-mark">&gt;_</span>
+      <span>nihitdev</span>
+    </a>
+
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#projects">projects</a>
+      <a href="#now">now</a>
+      <a href="#about">about</a>
+      <a class="nav-github" href="https://github.com/nihitdev" target="_blank" rel="noreferrer">github ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> ONLINE · BUILDING THINGS</p>
+        <h1>hey, i'm <span>nihit.</span></h1>
+        <p class="hero-text">
+          I build terminal tools, Rust experiments, and whatever makes me curious.
+          Currently learning systems programming, async Rust, Git, and how not to delete <code>.git</code>.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">see what i'm building <span>↓</span></a>
+          <a class="button button-ghost" href="https://github.com/nihitdev" target="_blank" rel="noreferrer">github profile ↗</a>
+        </div>
+
+        <div class="terminal-card" aria-label="Terminal introduction">
+          <div class="terminal-top">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">nihit@terminal:~</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">nihit@dev</span>:<span class="path">~</span>$ whoami</p>
+            <p class="output">builder / rustacean / terminal enjoyer</p>
+            <p><span class="prompt">nihit@dev</span>:<span class="path">~</span>$ <span id="typing"></span><span class="cursor">█</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="window">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-label">build.log</span>
+          </div>
+          <pre><code><span class="muted">[system]</span> booting curiosity...
+<span class="green-text">[ ok ]</span> Rust installed
+<span class="green-text">[ ok ]</span> Git connected
+<span class="yellow-text">[ .. ]</span> ideas compiling
+
+<span class="accent-text">shipping:</span> yoo v0.3.0
+<span class="muted">-----------------------</span>
+status: <span class="green-text">we are so back</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+      <div class="section-heading">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>things i've shipped</h2>
+        <p>Small projects, real releases, lots of learning.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="project-card-top">
+            <span class="project-number">01</span>
+            <span class="project-pill rust">RUST</span>
+          </div>
+          <div>
+            <h3>Oxide Terminal</h3>
+            <p>
+              A low-latency, cross-platform terminal emulator in Rust. It uses an async architecture
+              with Tokio, raw terminal control, PTYs, ANSI input handling, and a buffered renderer.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span>Tokio</span><span>PTY</span><span>ANSI</span><span>Cross-platform</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/nihitdev/rust_terminal" target="_blank" rel="noreferrer">source ↗</a>
+            <a href="https://github.com/nihitdev/rust_terminal#readme" target="_blank" rel="noreferrer">read more ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-number">02</span>
+            <span class="project-pill rust">RUST</span>
+          </div>
+          <div>
+            <h3>yoo</h3>
+            <p>
+              A tiny developer companion for better coding sessions. It welcomes you,
+              checks your setup, shows Git status, serves YAML tip packs, and has a local focus timer.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span>CLI</span><span>YAML</span><span>Git</span><span>crates.io</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/nihitdev/yo-cli" target="_blank" rel="noreferrer">source ↗</a>
+            <a href="https://crates.io/crates/yoo" target="_blank" rel="noreferrer">install ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <a class="all-projects" href="https://github.com/nihitdev?tab=repositories" target="_blank" rel="noreferrer">
+        explore all repositories <span>→</span>
+      </a>
+    </section>
+
+    <section id="now" class="section now-section">
+      <div class="section-heading">
+        <p class="eyebrow">NOW</p>
+        <h2>what i'm up to</h2>
+      </div>
+
+      <div class="now-list">
+        <div class="now-item"><span class="now-marker">01</span><p>Improving <strong>Oxide Terminal</strong> and learning more about terminal emulation.</p></div>
+        <div class="now-item"><span class="now-marker">02</span><p>Making <strong>yoo</strong> better, one useful command at a time.</p></div>
+        <div class="now-item"><span class="now-marker">03</span><p>Learning more Rust and getting comfortable with real releases.</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-copy">
+        <p class="eyebrow">ABOUT</p>
+        <h2>i'm just getting started.</h2>
+        <p>
+          I like making software, breaking it, fixing it, and shipping a better version.
+          This site is my little corner for projects, updates, and future experiments.
+        </p>
+      </div>
+
+      <div class="about-links">
+        <a href="https://github.com/nihitdev" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
+        <a href="mailto:hello@example.com"><span>Email <small>(replace this)</small></span><span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>built by Nihit · <span id="year"></span></p>
+    <p>made with curiosity and too many terminal windows.</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
