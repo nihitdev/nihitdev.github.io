@@ -32,6 +32,16 @@ body {
   color: #f4f6ff;
 }
 
+main > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 850px;
+}
+
+.pointer-glow {
+  transform: translate3d(calc(50vw - 17rem), calc(20vh - 17rem), 0);
+  will-change: transform;
+}
+
 body::selection {
   background: rgba(91, 168, 255, 0.3);
   color: white;

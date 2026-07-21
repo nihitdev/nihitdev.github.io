@@ -7,7 +7,7 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: 2, suffix: "+", label: "Featured projects" },
+  { value: 10, suffix: "+", label: "Featured projects" },
   { value: 100, suffix: "+", label: "Commits" },
   { value: 24, suffix: "/7", label: "Learning" },
   { value: "∞", suffix: "", label: "Curiosity" },

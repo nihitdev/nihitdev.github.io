@@ -1,18 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Background() {
-  const [position, setPosition] = useState({ x: 50, y: 20 });
+  const glowRef = useRef(null);
 
   useEffect(() => {
+    const glow = glowRef.current;
+    if (!glow || window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
+
+    let frame;
     const handlePointerMove = (event) => {
-      setPosition({
-        x: (event.clientX / window.innerWidth) * 100,
-        y: (event.clientY / window.innerHeight) * 100,
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        glow.style.transform = `translate3d(${event.clientX - glow.offsetWidth / 2}px, ${event.clientY - glow.offsetHeight / 2}px, 0)`;
       });
     };
 
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    return () => window.removeEventListener("pointermove", handlePointerMove);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
   }, []);
 
   return (
@@ -22,8 +31,8 @@ export default function Background() {
       <div className="absolute -left-40 top-24 h-[34rem] w-[34rem] rounded-full bg-blue-600/10 blur-[150px]" />
       <div className="absolute -right-48 top-[38%] h-[38rem] w-[38rem] rounded-full bg-indigo-500/10 blur-[160px]" />
       <div
-        className="absolute h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-400/[0.07] blur-[140px] transition-[left,top] duration-700"
-        style={{ left: `${position.x}%`, top: `${position.y}%` }}
+        ref={glowRef}
+        className="pointer-glow absolute left-0 top-0 h-[34rem] w-[34rem] rounded-full bg-sky-400/[0.07] blur-[140px]"
       />
       <div className="noise absolute inset-0 opacity-[0.035]" />
       <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-blue-500/[0.05] to-transparent" />
