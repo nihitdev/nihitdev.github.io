@@ -9,7 +9,7 @@ const focusItems = [
     title: "Rust-powered tools",
     description: "Small, fast developer utilities that make the terminal more useful and a little more fun.",
     command: "cargo build --release",
-    href: "https://github.com/nihitdev?tab=repositories",
+    href: "https://github.com/nihitdev/yo-cli",
   },
   {
     icon: Braces,
