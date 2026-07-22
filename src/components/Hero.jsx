@@ -88,7 +88,7 @@ export default function Hero() {
               <span>main*</span><span>UTF-8</span><span>rustc 1.x</span>
             </div>
           </div>
-          <div className="floating-note floating-note-top"><span>10+</span> projects shipped</div>
+          <div className="floating-note floating-note-top"><span>30+</span> projects shipped</div>
           <div className="floating-note floating-note-bottom"><span>∞</span> curiosity</div>
         </motion.div>
       </div>
