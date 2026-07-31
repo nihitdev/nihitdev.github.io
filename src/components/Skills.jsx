@@ -11,18 +11,9 @@ function SkillRow({ skill, index }) {
       viewport={{ once: true, amount: 0.8 }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
     >
-      <div className="mb-3 flex items-center justify-between gap-4">
+      <div className="skill-row flex items-center justify-between gap-4">
         <span className="font-semibold text-slate-200">{skill.name}</span>
-        <span className="font-mono text-xs tracking-wide text-blue-400">{skill.level}</span>
-      </div>
-      <div className="h-2 overflow-hidden rounded-full bg-[#202943] shadow-inner shadow-black/30">
-        <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-blue-500 via-sky-400 to-blue-300 shadow-[0_0_18px_rgba(78,157,255,0.38)]"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.value}%` }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 1.1, delay: 0.14 + index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-        />
+        <span className="skill-level">{skill.level}</span>
       </div>
     </motion.div>
   );
@@ -63,8 +54,8 @@ export default function Skills() {
     <section id="skills" className="section-shell py-28 sm:py-36">
       <SectionHeading
         eyebrow="WHAT I WORK WITH"
-        title="Tech Skills"
-        description="The languages, tools, and workflows I use to turn ideas into real projects."
+        title="Tools of the Trade"
+        description="A practical toolkit shaped by shipping projects—not a collection of arbitrary percentage bars."
       />
 
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">

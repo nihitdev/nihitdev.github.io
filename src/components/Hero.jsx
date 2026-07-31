@@ -28,12 +28,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8"
           >
-            <p className="section-kicker">DEVELOPER · MAKER · TERMINAL NERD</p>
+            <p className="section-kicker">RUST DEVELOPER · OPEN-SOURCE MAKER</p>
             <h1 className="hero-title mt-5">
               I build tools that feel <span>fast.</span>
             </h1>
             <p className="hero-copy">
-              I&apos;m Nihit Sunhare — a developer turning Rust experiments, terminal ideas, and obsessive workspace tweaks into useful open-source software.
+              I&apos;m Nihit Sunhare. I turn systems experiments and terminal ideas into small, fast open-source tools that developers actually enjoy using.
             </p>
           </motion.div>
 
@@ -88,8 +88,8 @@ export default function Hero() {
               <span>main*</span><span>UTF-8</span><span>rustc 1.x</span>
             </div>
           </div>
-          <div className="floating-note floating-note-top"><span>30+</span> projects shipped</div>
-          <div className="floating-note floating-note-bottom"><span>∞</span> curiosity</div>
+          <div className="floating-note floating-note-top"><span>10+</span> public projects</div>
+          <div className="floating-note floating-note-bottom"><span>OSS</span> built in public</div>
         </motion.div>
       </div>
     </section>

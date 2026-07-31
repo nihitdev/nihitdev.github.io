@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 export default function SectionHeading({ eyebrow, title, description }) {
   return (
     <motion.div
-      className="mx-auto mb-14 max-w-3xl text-center sm:mb-18"
+      className="section-heading mb-14 max-w-3xl sm:mb-18"
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}

@@ -61,6 +61,12 @@ export default function About() {
             </p>
           </div>
 
+          <div className="principles" aria-label="What I value">
+            <span>Fast by default</span>
+            <span>Useful over flashy</span>
+            <span>Learn in public</span>
+          </div>
+
           <a
             href="https://github.com/nihitdev?tab=repositories"
             target="_blank"
