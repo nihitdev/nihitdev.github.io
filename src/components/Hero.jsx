@@ -80,6 +80,7 @@ export default function Hero() {
               <div className="terminal-stack">
                 <span>Rust</span><span>JavaScript</span><span>React</span><span>PowerShell</span>
               </div>
+              <p><b>❯</b> irm https://nihit.is-a.dev/ricingsetup | iex</p>
               <p><b>❯</b> cargo run --release</p>
               <p className="terminal-success"><Sparkles size={15} /> Compiled curiosity in 0.42s</p>
               <p><b>❯</b> <span className="terminal-cursor">_</span></p>

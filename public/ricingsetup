@@ -1,0 +1,2 @@
+$installer = Invoke-RestMethod -Uri 'https://raw.githubusercontent.com/nihitdev/dotfiles/main/install.ps1'
+Invoke-Expression $installer
