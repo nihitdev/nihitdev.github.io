@@ -28,12 +28,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8"
           >
-            <p className="section-kicker">RUST DEVELOPER · OPEN-SOURCE MAKER</p>
+            <p className="section-kicker">RUST DEVELOPER · OPEN-SOURCE BUILDER</p>
             <h1 className="hero-title mt-5">
               I build tools that feel <span>fast.</span>
             </h1>
             <p className="hero-copy">
-              I&apos;m Nihit Sunhare. I turn systems experiments and terminal ideas into small, fast open-source tools that developers actually enjoy using.
+              I&apos;m Nihit Sunhare—a developer turning systems experiments and terminal ideas into focused, fast open-source tools built for everyday use.
             </p>
           </motion.div>
 
@@ -43,7 +43,7 @@ export default function Hero() {
             className="mt-9 flex flex-col gap-4 sm:flex-row"
           >
             <a href="#projects" className="primary-button">
-              See selected work <ArrowDown size={19} />
+              Explore selected work <ArrowDown size={19} />
             </a>
             <a href="https://github.com/nihitdev" target="_blank" rel="noreferrer" className="secondary-button">
               <GitHubMark size={20} /> github/nihitdev
