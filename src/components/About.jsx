@@ -51,13 +51,13 @@ export default function About() {
           <div className="absolute -left-5 top-1 h-20 w-1 rounded-full bg-gradient-to-b from-blue-400 to-transparent" />
           <div className="space-y-6 text-base leading-8 text-slate-400 sm:text-lg sm:leading-9">
             <p>
-              Hi, I&apos;m <strong className="font-bold text-white">Nihit Sunhare</strong>, a developer and creator who loves building
-              <span className="font-semibold text-blue-400"> terminal tools</span>, experimenting with
-              <span className="font-semibold text-blue-400"> Rust</span>, and exploring how software works under the hood.
+              Hi, I&apos;m <strong className="font-bold text-white">Nihit Sunhare</strong>, a developer who enjoys building
+              <span className="font-semibold text-blue-400"> terminal tools</span>, working with
+              <span className="font-semibold text-blue-400"> Rust</span>, and understanding the systems beneath the interface.
             </p>
             <p>
-              I live in Git, terminals, open source, and customized workspaces. I care about making software feel fast, useful,
-              and unmistakably mine.
+              My work lives where Git, terminals, open source, and carefully tuned workspaces meet. I care about software that is
+              quick to understand, satisfying to use, and thoughtfully made.
             </p>
           </div>
 

@@ -74,7 +74,7 @@ export default function Projects() {
       <SectionHeading
         eyebrow="THINGS I'VE BUILT"
         title="Featured Projects"
-        description="Real projects, real releases, and a lot of learning hidden behind every commit."
+        description="Selected work shaped by real releases, persistent iteration, and everything learned between commits."
       />
 
       <div className="space-y-8">

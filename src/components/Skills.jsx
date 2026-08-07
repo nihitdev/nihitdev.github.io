@@ -29,9 +29,9 @@ function SkillPanel({ title, icon: Icon, skills, delay = 0 }) {
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -5 }}
     >
-      <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-blue-500/[0.07] blur-3xl" />
+      <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#cba6f7]/[0.08] blur-3xl" />
       <div className="relative mb-9 flex items-center gap-4">
-        <span className="grid h-14 w-14 place-items-center rounded-2xl border border-blue-300/10 bg-[#242d57] text-blue-400 shadow-xl shadow-black/20">
+        <span className="grid h-14 w-14 place-items-center rounded-2xl border border-[#b4befe]/20 bg-[#313244] text-[#b4befe] shadow-xl shadow-[#11111b]/30">
           <Icon size={27} strokeWidth={2.2} />
         </span>
         <div>
@@ -55,7 +55,7 @@ export default function Skills() {
       <SectionHeading
         eyebrow="WHAT I WORK WITH"
         title="Tools of the Trade"
-        description="A practical toolkit shaped by shipping projects—not a collection of arbitrary percentage bars."
+        description="A practical toolkit shaped by building, debugging, and shipping real projects."
       />
 
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">

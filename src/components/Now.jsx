@@ -35,7 +35,7 @@ export default function Now() {
       <SectionHeading
         eyebrow="CURRENTLY IN THE TERMINAL"
         title="What I'm Up To"
-        description="A live snapshot of the ideas, skills, and tiny details getting my attention right now."
+        description="A snapshot of the tools, systems, and small details currently shaping my work."
       />
 
       <div className="now-grid">

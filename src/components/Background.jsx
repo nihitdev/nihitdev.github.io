@@ -26,16 +26,16 @@ export default function Background() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-50 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[#060810]" />
+      <div className="absolute inset-0 bg-[#11111b]" />
       <div className="background-grid absolute inset-0" />
-      <div className="absolute -left-40 top-24 h-[34rem] w-[34rem] rounded-full bg-blue-600/10 blur-[150px]" />
-      <div className="absolute -right-48 top-[38%] h-[38rem] w-[38rem] rounded-full bg-indigo-500/10 blur-[160px]" />
+      <div className="absolute -left-40 top-24 h-[34rem] w-[34rem] rounded-full bg-[#89b4fa]/10 blur-[150px]" />
+      <div className="absolute -right-48 top-[38%] h-[38rem] w-[38rem] rounded-full bg-[#cba6f7]/10 blur-[160px]" />
       <div
         ref={glowRef}
-        className="pointer-glow absolute left-0 top-0 h-[34rem] w-[34rem] rounded-full bg-sky-400/[0.07] blur-[140px]"
+        className="pointer-glow absolute left-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[#cba6f7]/[0.035] blur-[150px]"
       />
       <div className="noise absolute inset-0 opacity-[0.035]" />
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-blue-500/[0.05] to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#cba6f7]/[0.06] to-transparent" />
     </div>
   );
 }
