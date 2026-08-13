@@ -142,6 +142,9 @@ h1 span { background: linear-gradient(90deg, var(--purple), var(--blue)); -webki
 .tags span { color: #a9dffc; background: rgba(14,165,233,.05); border: 1px solid rgba(125,211,252,.13); border-radius: 7px; padding: 5px 7px; font: 10px ui-monospace, monospace; }
 .text-link { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; }
 .text-link:hover { color: white; }
+.projects-footer { display: flex; justify-content: center; margin-top: 28px; }
+.projects-footer .text-link { border: 1px solid var(--border); border-radius: 9px; padding: 10px 13px; transition: .2s; }
+.projects-footer .text-link:hover { border-color: rgba(167,139,250,.32); }
 
 .now-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .now-card { padding: 24px; }

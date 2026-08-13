@@ -10,9 +10,6 @@ export default function Projects() {
           <p>03 / TERMINAL ECOSYSTEM</p>
           <h2>Small repos. Clear purpose.</h2>
         </div>
-        <a className="text-link" href="https://github.com/nihitdev?tab=repositories" target="_blank" rel="noreferrer">
-          all repositories <ArrowUpRight size={16} />
-        </a>
       </div>
 
       <div className="project-grid">
@@ -39,6 +36,11 @@ export default function Projects() {
             </div>
           </motion.a>
         ))}
+      </div>
+      <div className="projects-footer">
+        <a className="text-link" href="https://github.com/nihitdev?tab=repositories" target="_blank" rel="noreferrer">
+          View all repositories <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   );
