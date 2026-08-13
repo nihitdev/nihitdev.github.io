@@ -6,10 +6,12 @@ import Projects from "./components/Projects";
 import Now from "./components/Now";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   return (
     <>
+      <CustomCursor />
       <div className="noise" aria-hidden="true" />
       <Navbar />
       <main>
