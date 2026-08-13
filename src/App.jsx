@@ -1,32 +1,26 @@
-import Background from "./components/Background";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Now from "./components/Now";
-import Skills from "./components/Skills";
+import Toolbox from "./components/Toolbox";
 import Projects from "./components/Projects";
+import Now from "./components/Now";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ContactDock from "./components/ContactDock";
-import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to content</a>
-      <Background />
+      <div className="noise" aria-hidden="true" />
       <Navbar />
-      <main id="main-content">
+      <main>
         <Hero />
         <About />
-        <Now />
-        <Skills />
+        <Toolbox />
         <Projects />
+        <Now />
         <Contact />
       </main>
       <Footer />
-      <ContactDock />
-      <CustomCursor />
     </>
   );
 }

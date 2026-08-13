@@ -1,3 +1,0 @@
-$cacheBuster = [guid]::NewGuid()
-$installer = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/nihitdev/dotfiles/main/install.ps1?cache=$cacheBuster"
-Invoke-Expression $installer
