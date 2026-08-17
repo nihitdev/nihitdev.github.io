@@ -9,21 +9,25 @@ export default function Toolbox() {
         <h2>The giant toolbox survived.</h2>
       </div>
       <motion.div
-        className="toolbox"
+        className="toolbox-groups"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        {toolbox.map((item, i) => (
-          <motion.span
-            key={item}
-            initial={{ opacity: 0, y: 12 }}
+        {toolbox.map((group, groupIndex) => (
+          <motion.div
+            className="toolbox-group"
+            key={group.title}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: Math.min(i * 0.025, 0.35) }}
+            transition={{ delay: groupIndex * 0.06 }}
           >
-            {item}
-          </motion.span>
+            <h3>{group.title}</h3>
+            <div className="toolbox">
+              {group.items.map((item) => <span key={item}>{item}</span>)}
+            </div>
+          </motion.div>
         ))}
       </motion.div>
     </section>

@@ -7,11 +7,30 @@ export const navItems = [
 ];
 
 export const toolbox = [
-  "Rust", "Go", "JavaScript", "TypeScript",
-  "YAML", "TOML", "CSS",
-  "CachyOS", "Arch Linux", "Linux", "KDE Plasma",
-  "Fish", "Zsh", "Bash", "Konsole", "Starship",
-  "Neovim", "Git", "GitHub", "GitHub Actions", "Docker",
+  {
+    title: "Programming languages",
+    items: ["Rust", "Go", "JavaScript", "TypeScript", "Lua", "Python"],
+  },
+  {
+    title: "Shells",
+    items: ["Fish", "Zsh", "Bash", "Windows PowerShell 5.1", "PowerShell (pwsh)"],
+  },
+  {
+    title: "Formats & styling",
+    items: ["YAML", "TOML", "JSON", "XML", "Markdown", "CSS"],
+  },
+  {
+    title: "Systems",
+    items: ["CachyOS", "Arch Linux", "Linux", "Windows", "WSL", "KDE Plasma", "Hyprland", "Wayland"],
+  },
+  {
+    title: "Tools",
+    items: ["VS Code", "JetBrains", "Vim", "Neovim", "Konsole", "Starship", "tmux", "fzf", "ripgrep", "jq", "Node.js", "Bun", "SSH", "Git", "GitHub", "GitHub Actions", "Docker", "Podman"],
+  },
+  {
+    title: "Package managers",
+    items: ["Scoop", "Winget", "Chocolatey", "Pacman", "APT", "npm", "pnpm", "Cargo"],
+  },
 ];
 
 export const projects = [
