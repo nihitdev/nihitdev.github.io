@@ -25,9 +25,9 @@ export default function Hero() {
             </a>
           </div>
           <div className="hero-meta">
-            <span><b>OS</b> CachyOS</span>
-            <span><b>Shell</b> Fish / Zsh</span>
-            <span><b>Desktop</b> KDE Plasma</span>
+            <span><b>OS</b> Arch Linux</span>
+            <span><b>Shell</b> Zsh</span>
+            <span><b>Desktop</b> Hyprland</span>
           </div>
         </motion.div>
 
@@ -39,7 +39,7 @@ export default function Hero() {
         >
           <div className="terminal-bar">
             <div className="traffic"><i /><i /><i /></div>
-            <span>nihit@cachyos: ~/Projects</span>
+            <span>nihit@arch: ~/Projects</span>
             <Terminal size={16} />
           </div>
           <div className="terminal-body">
@@ -47,8 +47,8 @@ export default function Hero() {
             <p className="result">Nihit Sunhare <span>/ terminal guy</span></p>
             <p><b>λ</b> stack --current</p>
             <div className="chips">
-              <span>CachyOS</span><span>Fish</span><span>Zsh</span><span>Starship</span>
-              <span>Rust</span><span>Go</span><span>TypeScript</span><span>Docker</span>
+              <span>Arch Linux</span><span>Hyprland</span><span>Zsh</span><span>Starship</span>
+              <span>Rust</span><span>Go</span><span>TypeScript</span><span>Podman</span>
             </div>
             <p><b>λ</b> git status</p>
             <p className="success">On branch main — nothing to commit, still cooking.</p>

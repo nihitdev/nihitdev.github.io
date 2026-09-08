@@ -27,12 +27,12 @@ export default function About() {
 
         <div className="whoami-card">
           <code>
-            OS        CachyOS{"\n"}
-            Shell     Fish / Zsh{"\n"}
-            Desktop   KDE Plasma{"\n"}
-            Terminal  Konsole{"\n"}
+            OS        Arch Linux{"\n"}
+            Shell     Zsh{"\n"}
+            Desktop   Hyprland{"\n"}
+            Terminal  Kitty{"\n"}
             Prompt    Starship{"\n"}
-            Editor    Neovim / Nano{"\n"}
+            Editor    Neovim{"\n"}
             Focus     Linux · CLI · Dotfiles{"\n"}
             Status    cooking
           </code>

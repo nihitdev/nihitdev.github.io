@@ -13,7 +13,7 @@ export const toolbox = [
   },
   {
     title: "Shells",
-    items: ["Fish", "Zsh", "Bash", "Windows PowerShell 5.1", "PowerShell (pwsh)"],
+    items: ["Zsh", "Fish", "Bash", "Nushell", "Windows PowerShell 5.1", "PowerShell (pwsh)"],
   },
   {
     title: "Formats & styling",
@@ -21,11 +21,11 @@ export const toolbox = [
   },
   {
     title: "Systems",
-    items: ["CachyOS", "Arch Linux", "Linux", "Windows", "WSL", "KDE Plasma", "Hyprland", "Wayland"],
+    items: ["Arch Linux", "Linux", "Hyprland", "Wayland", "Windows", "WSL"],
   },
   {
     title: "Tools",
-    items: ["VS Code", "JetBrains", "Vim", "Neovim", "Konsole", "Starship", "tmux", "fzf", "ripgrep", "jq", "Node.js", "Bun", "SSH", "Git", "GitHub", "GitHub Actions", "Docker", "Podman"],
+    items: ["VS Code", "JetBrains", "Vim", "Neovim", "Kitty", "Starship", "tmux", "fzf", "ripgrep", "jq", "Node.js", "Bun", "SSH", "Git", "GitHub", "GitHub Actions", "Podman", "Docker"],
   },
   {
     title: "Package managers",
@@ -35,10 +35,10 @@ export const toolbox = [
 
 export const projects = [
   {
-    title: "dotfiles",
-    description: "My current terminal, shell, prompt, editor, theme, and desktop configuration collection.",
-    tags: ["Dotfiles", "Fish", "Zsh", "CSS"],
-    href: "https://github.com/nihitdev/dotfiles",
+    title: "Kairo",
+    description: "My Arch Linux workstation installer and dotfiles ecosystem for a custom Hyprland desktop and CLI workflow.",
+    tags: ["Arch Linux", "Hyprland", "Dotfiles", "Zsh"],
+    href: "https://github.com/nihitdev/kairo",
   },
   {
     title: "shellcord",
@@ -87,8 +87,8 @@ export const projects = [
 export const nowItems = [
   {
     title: "Living in the terminal",
-    description: "Tuning Fish, Zsh, Starship, Konsole, Neovim, and the tiny details that make a shell feel like home.",
-    command: "exec fish",
+    description: "Tuning Zsh, Starship, Kitty, Hyprland, Neovim, and the tiny details that make Linux feel like home.",
+    command: "exec zsh",
   },
   {
     title: "Building small useful repos",
@@ -96,8 +96,8 @@ export const nowItems = [
     command: "git status",
   },
   {
-    title: "CachyOS daily driver",
-    description: "Arch-based Linux, KDE Plasma, modern CLI tools, and a setup that is constantly getting cleaner.",
+    title: "Arch Linux daily driver",
+    description: "Arch Linux, Hyprland, Wayland, modern CLI tools, and Podman containers in a custom desktop and shell setup that keeps getting cleaner.",
     command: "sudo pacman -Syu",
   },
 ];

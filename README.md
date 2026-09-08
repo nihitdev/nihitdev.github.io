@@ -18,12 +18,13 @@ A Linux-first personal portfolio centered around terminal tooling, shell configu
 The site reflects my current setup:
 
 ```text
-OS        CachyOS
-Shell     Fish / Zsh
-Desktop   KDE Plasma
-Terminal  Konsole
-Prompt    Starship
-Editor    Neovim / Nano
+OS         Arch Linux
+Shell      Zsh
+Desktop    Hyprland / Wayland
+Terminal   Kitty
+Prompt     Starship
+Editor     Neovim
+Containers Podman
 ```
 
 ## Featured ecosystem
@@ -38,7 +39,7 @@ Editor    Neovim / Nano
 - `cli-cheatsheets`
 - `terminal-colors`
 - `prompt-symbols`
-- `dotfiles`
+- `kairo`
 - `shellcord`
 
 ## Tech stack
@@ -72,7 +73,7 @@ npm run preview
 
 <div align="center">
 
-Built on Linux, probably from Konsole.
+Built on Linux, probably from Kitty.
 
 **[Visit the portfolio](https://nihit.is-a.dev)** · **[GitHub](https://github.com/nihitdev)**
 
