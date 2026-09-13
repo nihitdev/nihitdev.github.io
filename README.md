@@ -18,13 +18,12 @@ A Linux-first personal portfolio centered around terminal tooling, shell configu
 The site reflects my current setup:
 
 ```text
-OS         Arch Linux
-Shell      Zsh
-Desktop    Hyprland / Wayland
-Terminal   Kitty
-Prompt     Starship
-Editor     Neovim
-Containers Podman
+OS        Arch Linux
+Shell     Fish / Zsh
+Desktop   Hyprland / Niri
+Terminal  Konsole
+Prompt    Starship
+Editor    Neovim / Nano
 ```
 
 ## Featured ecosystem
@@ -39,19 +38,19 @@ Containers Podman
 - `cli-cheatsheets`
 - `terminal-colors`
 - `prompt-symbols`
-- `kairo`
+- `dotfiles`
 - `shellcord`
 
 ## Tech stack
 
-| Category | Technology |
-| --- | --- |
-| UI | React 19 |
-| Styling | Tailwind CSS 4 + custom CSS |
-| Animation | Motion |
-| Icons | Lucide React |
-| Tooling | Vite 8 |
-| Hosting | GitHub Pages |
+| Category  | Technology                                        |
+| --------- | ------------------------------------------------- |
+| UI        | React 19                                          |
+| Styling   | Tailwind CSS 4 + custom CSS                       |
+| Animation | CSS + IntersectionObserver (reduced-motion aware) |
+| Icons     | Lucide React                                      |
+| Tooling   | Vite 8                                            |
+| Hosting   | GitHub Pages                                      |
 
 ## Run locally
 
@@ -61,6 +60,20 @@ cd nihitdev.github.io
 npm install
 npm run dev
 ```
+
+## Quality checks
+
+```bash
+npm run lint
+```
+
+## Design and content
+
+The portfolio uses cool charcoal, blue-violet accents, terminal-inspired illustrations, and responsive project layouts. Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. The first two projects receive featured styling; their previews are CSS illustrations, not screenshots. Add a `demo` URL to a featured project to show its live-demo link.
+
+Contact details are in `src/components/Contact.jsx`. Discord copies the username `nihitdev`, with a visible fallback if clipboard access is unavailable. The featured repository count is derived from local project data; no external stats API is used.
+
+The favicon and social card are served locally from `public/`. `og-card.svg` is the editable source for the 1200 × 630 PNG used by social metadata.
 
 ## Build
 
@@ -73,7 +86,7 @@ npm run preview
 
 <div align="center">
 
-Built on Linux, probably from Kitty.
+Built on Linux, probably from Konsole.
 
 **[Visit the portfolio](https://nihit.is-a.dev)** · **[GitHub](https://github.com/nihitdev)**
 

@@ -1,61 +1,135 @@
-import { motion } from "motion/react";
-import { ArrowDown, MapPin, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, GitBranch, Terminal } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
 
 export default function Hero() {
   return (
     <section id="home" className="hero shell">
       <div className="hero-grid">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="eyebrow"><span className="dot" /> building in public <MapPin size={14} /> India</div>
-          <p className="kicker">LINUX · TERMINAL · SHELLS · DOTFILES · DEVELOPER TOOLS</p>
-          <h1>I build a terminal setup <span>worth living in.</span></h1>
+        <div className="hero-copy">
+          <p className="availability">
+            <span className="dot" /> BUILDING IN PUBLIC{" "}
+            <span className="location">/ INDIA</span>
+          </p>
+          <h1>
+            Nihit
+            <br />
+            <span>
+              Sunhare<span className="name-period">.</span>
+            </span>
+          </h1>
+          <h2>Small tools. Better workflows.</h2>
           <p className="lead">
-            I'm Nihit Sunhare. I build small Linux utilities, terminal experiments, shell configs,
-            curated references, and tools that make everyday developer workflows nicer.
+            Developer. Linux enthusiast. Terminal person.
+            <br />I build useful things and obsess over the little details that
+            make them feel right.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#projects">Explore the ecosystem <ArrowDown size={18} /></a>
-            <a className="button secondary" href="https://github.com/nihitdev" target="_blank" rel="noreferrer">
-              <GitHubIcon size={18} /> github/nihitdev
+            <a className="button primary" href="#projects">
+              View projects <ArrowDown size={16} />
+            </a>
+            <a
+              className="button secondary"
+              href="https://github.com/nihitdev"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubIcon size={17} /> GitHub <ArrowUpRight size={14} />
             </a>
           </div>
-          <div className="hero-meta">
-            <span><b>OS</b> Arch Linux</span>
-            <span><b>Shell</b> Zsh</span>
-            <span><b>Desktop</b> Hyprland</span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="terminal-card"
-          initial={{ opacity: 0, scale: 0.96, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.12 }}
+        </div>
+        <div
+          className="hero-visual"
+          role="img"
+          aria-label="An illustrated terminal showing Nihit's developer environment"
         >
-          <div className="terminal-bar">
-            <div className="traffic"><i /><i /><i /></div>
-            <span>nihit@arch: ~/Projects</span>
-            <Terminal size={16} />
-          </div>
-          <div className="terminal-body">
-            <p><b>λ</b> whoami</p>
-            <p className="result">Nihit Sunhare <span>/ terminal guy</span></p>
-            <p><b>λ</b> stack --current</p>
-            <div className="chips">
-              <span>Arch Linux</span><span>Hyprland</span><span>Zsh</span><span>Starship</span>
-              <span>Rust</span><span>Go</span><span>TypeScript</span><span>Podman</span>
+          <div className="orbit orbit-one" aria-hidden="true" />
+          <div className="orbit orbit-two" aria-hidden="true" />
+          <span className="visual-coordinate" aria-hidden="true">
+            ~/ a place to build
+          </span>
+          <div className="terminal-card">
+            <div className="terminal-bar">
+              <div className="traffic" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </div>
+              <span>nihit@arch: ~</span>
+              <Terminal size={13} />
             </div>
-            <p><b>λ</b> git status</p>
-            <p className="success">On branch main — nothing to commit, still cooking.</p>
-            <p><b>λ</b> <span className="cursor">_</span></p>
+            <div className="terminal-body">
+              <p>
+                <b>❯</b> whoami
+              </p>
+              <div className="terminal-identity">
+                <span className="ascii-mark" aria-hidden="true">
+                  n<span>_</span>
+                </span>
+                <div>
+                  <strong>nihitdev</strong>
+                  <br />
+                  <span>--------------------</span>
+                  <br />
+                  developer & tinkerer
+                </div>
+              </div>
+              <dl>
+                <div>
+                  <dt>os</dt>
+                  <dd>Arch Linux</dd>
+                </div>
+                <div>
+                  <dt>shell</dt>
+                  <dd>Fish + Zsh</dd>
+                </div>
+                <div>
+                  <dt>editor</dt>
+                  <dd>Neovim</dd>
+                </div>
+                <div>
+                  <dt>focus</dt>
+                  <dd>tools that feel personal</dd>
+                </div>
+              </dl>
+              <div className="terminal-palette" aria-hidden="true">
+                {[
+                  "#91a5e8",
+                  "#aab7e8",
+                  "#d1b27c",
+                  "#b5b4cd",
+                  "#8ba9ba",
+                  "#d3a79b",
+                  "#ecece1",
+                ].map((c) => (
+                  <i key={c} style={{ background: c }} />
+                ))}
+              </div>
+              <p className="terminal-prompt">
+                <b>❯</b> make something useful<span className="cursor">▍</span>
+              </p>
+            </div>
+            <div className="terminal-footer">
+              <span>
+                <GitBranch size={12} /> main
+              </span>
+              <span>
+                <span className="dot" /> still cooking
+              </span>
+            </div>
           </div>
-          <div className="terminal-footer"><span>UTF-8</span><span>truecolor</span><span>λ home</span></div>
-        </motion.div>
+          <div className="visual-note">
+            <span>✦</span> A little curiosity. A lot of terminal tabs.
+          </div>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <p>
+          <span className="dot" /> Building with{" "}
+          <strong>Rust · TypeScript · Go · JavaScript · Linux</strong>
+        </p>
+        <a href="#about">
+          SCROLL TO EXPLORE <ArrowDown size={13} />
+        </a>
       </div>
     </section>
   );

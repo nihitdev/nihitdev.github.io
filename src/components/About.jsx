@@ -1,41 +1,54 @@
-import { motion } from "motion/react";
-
+import SectionHeading from "./SectionHeading";
 export default function About() {
   return (
-    <section id="about" className="section shell">
-      <div className="section-head">
-        <p>01 / WHOAMI</p>
-        <h2>Linux is home.</h2>
-      </div>
-
+    <section id="about" className="section shell reveal">
+      <SectionHeading
+        number="01"
+        label="A LITTLE ABOUT ME"
+        title={
+          <>
+            Linux is home.
+            <br />
+            <span>Curiosity is the default.</span>
+          </>
+        }
+      />
       <div className="about-grid">
-        <motion.div
-          className="copy-card"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <div className="about-copy">
           <p>
-            I like building small things that make the terminal more useful: shell snippets, prompt
-            presets, Linux references, environment checkers, interactive demos, and dotfiles.
+            I’m Nihit, a developer who likes building small things that make
+            everyday workflows nicer. Shell snippets, Linux utilities,
+            interactive terminal experiments, and dotfiles that feel like home.
           </p>
           <p>
-            My setup changes constantly, but the goal stays the same: understand the tools, keep the
-            workflow fast, and make the machine feel personal.
+            My setup changes constantly, but the goal stays the same: understand
+            the tools, keep the workflow fast, and make the machine feel
+            personal. Lately, that means Rust, TypeScript, Go, and a healthy
+            amount of shell scripting.
           </p>
-        </motion.div>
-
-        <div className="whoami-card">
-          <code>
-            OS        Arch Linux{"\n"}
-            Shell     Zsh{"\n"}
-            Desktop   Hyprland{"\n"}
-            Terminal  Kitty{"\n"}
-            Prompt    Starship{"\n"}
-            Editor    Neovim{"\n"}
-            Focus     Linux · CLI · Dotfiles{"\n"}
-            Status    cooking
-          </code>
+          <a className="text-link" href="#now">
+            What I’m working on now <span>↗</span>
+          </a>
+        </div>
+        <div className="setup">
+          <div className="setup-heading">
+            <span className="dot" /> THE DAILY DRIVER <span>~/.config</span>
+          </div>
+          <dl>
+            {[
+              ["OS", "Arch Linux"],
+              ["Shell", "Fish / Zsh"],
+              ["Desktop", "Hyprland / Niri"],
+              ["Terminal", "Konsole"],
+              ["Prompt", "Starship"],
+              ["Editor", "Neovim / Nano"],
+            ].map(([key, value]) => (
+              <div key={key}>
+                <dt>{key}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

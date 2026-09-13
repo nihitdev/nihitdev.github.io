@@ -1,19 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#080b10"/>
-      <stop offset="1" stop-color="#111827"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop stop-color="#a78bfa"/>
-      <stop offset="1" stop-color="#7dd3fc"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1030" cy="100" r="260" fill="#7c3aed" opacity=".08"/>
-  <circle cx="120" cy="540" r="300" fill="#0284c7" opacity=".08"/>
-  <text x="110" y="235" fill="#f8fafc" font-size="74" font-weight="800" font-family="monospace">nihitdev</text>
-  <text x="110" y="315" fill="url(#accent)" font-size="34" font-weight="700" font-family="monospace">Linux · Terminal · Shells · Dotfiles</text>
-  <text x="110" y="380" fill="#94a3b8" font-size="29" font-family="monospace">building a terminal setup worth living in</text>
-  <text x="110" y="490" fill="#a78bfa" font-size="42" font-family="monospace">╰─❯</text>
+<rect width="1200" height="630" fill="#0f1118"/><circle cx="1010" cy="280" r="190" fill="none" stroke="#384365"/><circle cx="1010" cy="280" r="240" fill="none" stroke="#293149" stroke-dasharray="4 8"/>
+<text x="80" y="105" fill="#aab7e8" font-size="17" font-family="monospace" letter-spacing="3">NIHITDEV / DEVELOPER &amp; LINUX ENTHUSIAST</text>
+<text x="75" y="255" fill="#eeeee7" font-size="104" font-weight="700" font-family="sans-serif" letter-spacing="-5">Nihit Sunhare<tspan fill="#aab7e8">.</tspan></text>
+<text x="80" y="335" fill="#b7bdac" font-size="37" font-family="sans-serif">Small tools. Better workflows.</text>
+<text x="80" y="420" fill="#a2a79a" font-size="23" font-family="monospace">Rust · TypeScript · Go · JavaScript · Linux</text>
+<path d="M80 500h1040" stroke="#2d3342"/><text x="80" y="554" fill="#aab7e8" font-size="20" font-family="monospace">nihit.is-a.dev</text><text x="885" y="554" fill="#9da5b8" font-size="18" font-family="monospace">building in public</text>
 </svg>
