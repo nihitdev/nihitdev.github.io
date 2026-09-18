@@ -57,7 +57,6 @@ export const toolbox = [
       "GitHub",
       "GitHub Actions",
       "Podman",
-      "Podman",
     ],
   },
   {

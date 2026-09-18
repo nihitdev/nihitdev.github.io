@@ -1,135 +1,198 @@
+import { useRef } from "react";
 import { ArrowDown, ArrowUpRight, GitBranch, Terminal } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
-
-export default function Hero() {
+import {
+  ArchLogo,
+  GlitchText,
+  DraggableWindow,
+  MagneticButton,
+  TerminalText,
+  WindowBar,
+} from "../motion/Primitives";
+import { overdrive } from "../motion/config";
+export default function Hero({ ready = true }) {
+  const clicks = useRef(0);
   return (
     <section id="home" className="hero shell">
+      <div className="hero-topline">
+        <span>~/home/nihitdev/portfolio</span>
+        <span>
+          WORKSPACE 01 <span className="accent">●</span>
+        </span>
+      </div>
       <div className="hero-grid">
         <div className="hero-copy">
           <p className="availability">
-            <span className="dot" /> BUILDING IN PUBLIC{" "}
-            <span className="location">/ INDIA</span>
+            <i className="status-dot" /> BUILDING IN PUBLIC <span>/ INDIA</span>
           </p>
-          <h1>
-            Nihit
-            <br />
+          <div className="hero-prompt">
             <span>
-              Sunhare<span className="name-period">.</span>
+              nihitdev<span className="accent">@ArchNemesis</span>:~$
+            </span>
+            <TerminalText text="whoami" delay={500} active={ready} />
+          </div>
+          <h1 aria-label="Nihit Sunhare">
+            <span className="name-line" aria-hidden="true">
+              {"NIHIT".split("").map((letter, i) => (
+                <span style={{ "--i": i }} key={i}>
+                  {letter}
+                </span>
+              ))}
+              <span className="name-dot">.</span>
+            </span>
+            <span className="surname">
+              <GlitchText>SUNHARE</GlitchText>
+              <span className="name-caret">_</span>
             </span>
           </h1>
-          <h2>Small tools. Better workflows.</h2>
+          <h2>
+            Developer. Linux enthusiast. <span>Builder.</span>
+          </h2>
           <p className="lead">
-            Developer. Linux enthusiast. Terminal person.
+            Small tools. Better workflows.
             <br />I build useful things and obsess over the little details that
             make them feel right.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#projects">
-              View projects <ArrowDown size={16} />
-            </a>
-            <a
-              className="button secondary"
+            <MagneticButton href="#projects" className="primary">
+              <span>&gt;_</span> Explore projects <ArrowUpRight size={17} />
+            </MagneticButton>
+            <MagneticButton
               href="https://github.com/nihitdev"
               target="_blank"
               rel="noreferrer"
+              className="secondary"
             >
-              <GitHubIcon size={17} /> GitHub <ArrowUpRight size={14} />
-            </a>
+              <GitHubIcon size={16} /> GitHub <ArrowUpRight size={15} />
+            </MagneticButton>
+          </div>
+          <div className="hero-tags">
+            <span>ARCH LINUX</span>
+            <i>/</i>
+            <span>OPEN SOURCE</span>
+            <i>/</i>
+            <span>ENDLESS CURIOSITY</span>
           </div>
         </div>
-        <div
-          className="hero-visual"
-          role="img"
-          aria-label="An illustrated terminal showing Nihit's developer environment"
-        >
-          <div className="orbit orbit-one" aria-hidden="true" />
-          <div className="orbit orbit-two" aria-hidden="true" />
-          <span className="visual-coordinate" aria-hidden="true">
-            ~/ a place to build
+        <div className="hero-visual">
+          <div className="orbital orbital-outer" aria-hidden="true" />
+          <div className="orbital orbital-inner" aria-hidden="true" />
+          <span className="visual-coordinate">
+            DISPLAY :0 · 256 COLORS · ∞ POSSIBILITIES
           </span>
-          <div className="terminal-card">
-            <div className="terminal-bar">
-              <div className="traffic" aria-hidden="true">
-                <i />
-                <i />
-                <i />
+          <div className="hero-terminal tilt-card" data-tilt>
+            <WindowBar title="nihitdev@ArchNemesis: ~" detail="01 — neofetch" />
+            <div className="neofetch">
+              <div className="neofetch-command">
+                <span>❯</span> neofetch{" "}
+                <span className="command-comment">--personality</span>
               </div>
-              <span>nihit@arch: ~</span>
-              <Terminal size={13} />
-            </div>
-            <div className="terminal-body">
-              <p>
-                <b>❯</b> whoami
-              </p>
-              <div className="terminal-identity">
-                <span className="ascii-mark" aria-hidden="true">
-                  n<span>_</span>
-                </span>
-                <div>
-                  <strong>nihitdev</strong>
-                  <br />
-                  <span>--------------------</span>
-                  <br />
-                  developer & tinkerer
+              <div className="neofetch-main">
+                <button
+                  className="arch-emblem"
+                  aria-label="Arch Linux emblem; click five times for rice overdrive"
+                  onClick={() => {
+                    clicks.current++;
+                    if (clicks.current % 5 === 0) overdrive();
+                  }}
+                >
+                  <ArchLogo />
+                  <span className="emblem-ring" />
+                </button>
+                <div className="system-info">
+                  <strong>
+                    nihitdev<span>@</span>ArchNemesis
+                  </strong>
+                  <div className="ascii-rule">----------------------</div>
+                  {[
+                    ["OS", "Arch Linux x86_64"],
+                    ["WM", "Hyprland / Niri"],
+                    ["SHELL", "Zsh / Fish"],
+                    ["EDITOR", "Neovim"],
+                    ["STATUS", "ONLINE"],
+                    ["RICE", "MAXIMUM"],
+                  ].map(([key, value], i) => (
+                    <div className="meta-row" key={key} style={{ "--i": i }}>
+                      <span>{key}</span>
+                      <b className={key === "STATUS" ? "success" : ""}>
+                        {value}
+                      </b>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <dl>
-                <div>
-                  <dt>os</dt>
-                  <dd>Arch Linux</dd>
-                </div>
-                <div>
-                  <dt>shell</dt>
-                  <dd>Fish + Zsh</dd>
-                </div>
-                <div>
-                  <dt>editor</dt>
-                  <dd>Neovim</dd>
-                </div>
-                <div>
-                  <dt>focus</dt>
-                  <dd>tools that feel personal</dd>
-                </div>
-              </dl>
-              <div className="terminal-palette" aria-hidden="true">
+              <div className="terminal-palette">
                 {[
-                  "#91a5e8",
-                  "#aab7e8",
-                  "#d1b27c",
-                  "#b5b4cd",
-                  "#8ba9ba",
-                  "#d3a79b",
-                  "#ecece1",
+                  "#b4befe",
+                  "#cba6f7",
+                  "#f5c2e7",
+                  "#f38ba8",
+                  "#89dceb",
+                  "#a6e3a1",
+                  "#f9e2af",
+                  "#cdd6f4",
                 ].map((c) => (
                   <i key={c} style={{ background: c }} />
                 ))}
               </div>
-              <p className="terminal-prompt">
-                <b>❯</b> make something useful<span className="cursor">▍</span>
-              </p>
+              <div className="hero-terminal-rule" />
+              <div className="terminal-quote">
+                <span>❯</span> echo $PHILOSOPHY
+                <p>
+                  "Make the machine feel like <b>home.</b>"
+                </p>
+              </div>
+              <a href="#terminal" className="terminal-invite">
+                ❯ enter interactive shell{" "}
+                <span className="block-cursor">▌</span>
+                <span>↵</span>
+              </a>
             </div>
-            <div className="terminal-footer">
+            <div className="window-footer">
               <span>
-                <GitBranch size={12} /> main
+                <GitBranch size={12} /> main*
               </span>
               <span>
-                <span className="dot" /> still cooking
+                <i className="status-dot" /> session active
               </span>
+              <span>utf-8</span>
             </div>
           </div>
-          <div className="visual-note">
-            <span>✦</span> A little curiosity. A lot of terminal tabs.
-          </div>
+          <DraggableWindow title="~/.config/hypr/identity.conf">
+            <div className="config-note">
+              <span>$</span>
+              <div>
+                personality = <b>100%</b>
+                <br />
+                rice = <b>maximum</b>
+                <br />
+                <span className="comment">
+                  # it's not a phase, it's a workflow
+                </span>
+              </div>
+            </div>
+          </DraggableWindow>
+          <span className="visual-bottom">
+            <Terminal size={12} /> HANDCRAFTED. NOT DEFAULT.
+          </span>
         </div>
       </div>
       <div className="hero-bottom">
-        <p>
-          <span className="dot" /> Building with{" "}
-          <strong>Rust · TypeScript · Go · JavaScript · Linux</strong>
-        </p>
         <a href="#about">
-          SCROLL TO EXPLORE <ArrowDown size={13} />
+          <ArrowDown size={14} />
+          <span>
+            scroll to continue<span className="block-cursor">_</span>
+          </span>
         </a>
+        <p>
+          BUILT WITH{" "}
+          <strong>
+            Rust <i>·</i> TypeScript <i>·</i> Go <i>·</i> Linux
+          </strong>
+        </p>
+        <span className="hero-version">
+          PORTFOLIO.SYS <b>v2.0</b>
+        </span>
       </div>
     </section>
   );

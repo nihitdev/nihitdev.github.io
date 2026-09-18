@@ -47,7 +47,7 @@ Editor    Neovim / Nano
 | --------- | ------------------------------------------------- |
 | UI        | React 19                                          |
 | Styling   | Tailwind CSS 4 + custom CSS                       |
-| Animation | CSS + IntersectionObserver (reduced-motion aware) |
+| Animation | CSS + shared canvas/RAF + IntersectionObserver |
 | Icons     | Lucide React                                      |
 | Tooling   | Vite 8                                            |
 | Hosting   | GitHub Pages                                      |
@@ -69,9 +69,11 @@ npm run lint
 
 ## Design and content
 
-The portfolio uses cool charcoal, blue-violet accents, terminal-inspired illustrations, and responsive project layouts. Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. The first two projects receive featured styling; their previews are CSS illustrations, not screenshots. Add a `demo` URL to a featured project to show its live-demo link.
+The portfolio is ArchNemesis: a purple-black Linux environment with a cinematic boot, workspace navigation, interactive terminal, tilting project windows, technology constellation, particles, CRT controls, and reduced-motion support. Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. The first two projects receive featured styling; their previews are CSS illustrations, not screenshots. Add a `demo` URL to a featured project to show its live-demo link.
 
-Contact details are in `src/components/Contact.jsx`. Discord copies the username `nihitdev`, with a visible fallback if clipboard access is unavailable. The featured repository count is derived from local project data; no external stats API is used.
+Contact details are in `src/components/Contact.jsx`. Discord copies the username `nihitdev`, with a visible fallback if clipboard access is unavailable. The featured repository count and branch visualization are derived from local project data; no external stats API is used.
+
+See [ArchNemesis implementation and QA notes](docs/ARCHNEMESIS.md) for controls, architecture, performance decisions, and verification.
 
 The favicon and social card are served locally from `public/`. `og-card.svg` is the editable source for the 1200 × 630 PNG used by social metadata.
 

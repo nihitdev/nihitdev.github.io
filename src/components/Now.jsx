@@ -1,4 +1,9 @@
-import { ArrowUpRight, GitPullRequest, Terminal } from "lucide-react";
+import {
+  ArrowUpRight,
+  GitPullRequest,
+  Terminal,
+  GitBranch,
+} from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
 import { nowItems, projects } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
@@ -6,7 +11,7 @@ export default function Now() {
   return (
     <section id="now" className="section shell reveal">
       <SectionHeading
-        number="04"
+        number="05"
         label="OPEN SOURCE & RIGHT NOW"
         title="Always a work in progress."
       />
@@ -42,9 +47,31 @@ export default function Now() {
           <span>repositories featured here</span>
         </a>
       </div>
+      <div className="repo-graph reveal">
+        <div className="repo-graph-title">
+          <GitBranch size={16} /> git log --featured{" "}
+          <span>LOCAL PROJECT INDEX · NOT LIVE ACTIVITY</span>
+        </div>
+        {projects.map((p, i) => (
+          <a
+            href={p.href}
+            target="_blank"
+            rel="noreferrer"
+            key={p.title}
+            className="repo-node"
+            style={{ "--i": i }}
+          >
+            <span className="branch-dot" />
+            <code>{String(i + 1).padStart(2, "0")}</code>
+            <strong>{p.title}</strong>
+            <span>{p.tags[0]}</span>
+            <ArrowUpRight size={14} />
+          </a>
+        ))}
+      </div>
       <div className="now-grid">
         {nowItems.map((item, i) => (
-          <article className="now-card" key={item.title}>
+          <article className="now-card reveal" key={item.title}>
             <span className="now-index">
               {i === 1 ? <GitPullRequest size={16} /> : <Terminal size={16} />}{" "}
               CURRENTLY / 0{i + 1}

@@ -1,6 +1,8 @@
+import { CircuitDivider } from "../motion/Primitives";
 export default function SectionHeading({ number, label, title, children }) {
   return (
     <div className="section-head">
+      <CircuitDivider />
       <p className="eyebrow">
         <span>{number}</span> / {label}
       </p>

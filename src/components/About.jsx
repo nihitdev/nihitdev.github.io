@@ -1,3 +1,4 @@
+import { WindowBar } from "../motion/Primitives";
 import SectionHeading from "./SectionHeading";
 export default function About() {
   return (
@@ -30,7 +31,8 @@ export default function About() {
             What I’m working on now <span>↗</span>
           </a>
         </div>
-        <div className="setup">
+        <div className="setup tilt-card" data-tilt>
+          <WindowBar title="~/.config/daily-driver" detail="config" />
           <div className="setup-heading">
             <span className="dot" /> THE DAILY DRIVER <span>~/.config</span>
           </div>

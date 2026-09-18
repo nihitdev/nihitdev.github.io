@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section shell reveal">
       <div className="contact-card">
-        <p className="eyebrow">05 / SAY HELLO</p>
+        <p className="eyebrow">06 / ESTABLISH A CONNECTION</p>
         <div className="contact-heading">
           <h2>
             Good things start

@@ -1,4 +1,6 @@
-import { ArrowUpRight, Folder, GitBranch } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { TiltCard, WindowBar } from "../motion/Primitives";
+import { ArrowUpRight, Folder, GitBranch, X } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
 import { projects } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
@@ -78,10 +80,18 @@ function Tags({ tags }) {
   );
 }
 export default function Projects() {
+  const [selected, setSelected] = useState(null);
+  const dialog = useRef(null);
+  function inspect(project) {
+    setSelected(project);
+  }
+  useEffect(() => {
+    if (selected) dialog.current.showModal();
+  }, [selected]);
   return (
     <section id="projects" className="section shell reveal">
       <SectionHeading
-        number="03"
+        number="02"
         label="SELECTED WORK"
         title={
           <>
@@ -100,8 +110,23 @@ export default function Projects() {
       </SectionHeading>
       <div className="featured-grid">
         {projects.slice(0, 2).map((project, i) => (
-          <article className="featured-project" key={project.title}>
-            <ProjectVisual variant={project.title} />
+          <TiltCard
+            className="featured-project"
+            key={project.title}
+            style={{ "--delay": `${i * 100}ms` }}
+          >
+            <WindowBar
+              title={`~/projects/${project.title}`}
+              detail="repository"
+            />
+            <button
+              className="project-preview-button"
+              onClick={() => inspect(project)}
+              aria-label={`Inspect ${project.title}`}
+            >
+              <ProjectVisual variant={project.title} />
+              <span className="inspect-hint">INSPECT PROJECT ↗</span>
+            </button>
             <div className="project-content">
               <div className="project-top">
                 <span>
@@ -135,7 +160,7 @@ export default function Projects() {
                 )}
               </div>
             </div>
-          </article>
+          </TiltCard>
         ))}
       </div>
       <div className="more-projects-label">
@@ -145,7 +170,7 @@ export default function Projects() {
       <div className="project-list">
         {projects.slice(2).map((project, i) => (
           <a
-            className="project-row"
+            className="project-row reveal"
             key={project.title}
             href={project.href}
             target="_blank"
@@ -162,6 +187,60 @@ export default function Projects() {
           </a>
         ))}
       </div>
+      <dialog
+        className="project-dialog"
+        aria-labelledby="project-dialog-title"
+        ref={dialog}
+        onClose={() => setSelected(null)}
+        onClick={(e) => {
+          if (e.target === dialog.current) dialog.current.close();
+        }}
+      >
+        {selected && (
+          <>
+            <WindowBar
+              title={`~/projects/${selected.title}`}
+              detail="project inspector"
+            />
+            <button
+              className="dialog-close"
+              aria-label="Close project details"
+              onClick={() => dialog.current.close()}
+            >
+              <X size={19} />
+            </button>
+            <ProjectVisual variant={selected.title} />
+            <div className="dialog-content">
+              <p className="eyebrow">OPEN SOURCE / PROJECT DETAILS</p>
+              <h2 id="project-dialog-title">{selected.title}</h2>
+              <p>{selected.description}</p>
+              <Tags tags={selected.tags} />
+              <a
+                className="button primary"
+                href={selected.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Explore repository <ArrowUpRight size={16} />
+              </a>
+              {selected.demo && (
+                <a
+                  className="button"
+                  href={selected.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live demo ↗
+                </a>
+              )}
+              <small>
+                Illustrated preview · explore the repository for source and
+                documentation.
+              </small>
+            </div>
+          </>
+        )}
+      </dialog>
     </section>
   );
 }

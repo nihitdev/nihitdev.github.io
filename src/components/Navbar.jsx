@@ -1,90 +1,130 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-import { navItems } from "../data/portfolio";
+import { Menu, X, Wifi } from "lucide-react";
+import { ArchLogo } from "../motion/Primitives";
+const items = [
+  ["home", "HOME"],
+  ["about", "ABOUT"],
+  ["projects", "PROJECTS"],
+  ["toolbox", "STACK"],
+  ["now", "GITHUB"],
+  ["contact", "CONTACT"],
+];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("");
-  const menuButton = useRef(null);
+  const [active, setActive] = useState("home");
   const header = useRef(null);
+  const menu = useRef(null);
+  const links = useRef(null);
+  const highlight = useRef(null);
   useEffect(() => {
+    let frame;
     const update = () => {
-      let id = "";
-      for (const section of document.querySelectorAll("main > section")) {
-        if (section.getBoundingClientRect().top <= 160) id = "#" + section.id;
-      }
-      setActive(id);
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        let current = "home";
+        for (const [id] of items) {
+          if (document.getElementById(id)?.getBoundingClientRect().top <= 200)
+            current = id;
+        }
+        setActive(current);
+      });
     };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
     const close = (e) => {
-      if (
-        e.key === "Escape" &&
-        menuButton.current?.getAttribute("aria-expanded") === "true"
-      ) {
+      if (e.key === "Escape") {
         setOpen(false);
-        menuButton.current?.focus();
+        if (menu.current?.getAttribute("aria-expanded") === "true")
+          menu.current.focus();
       }
     };
     const outside = (e) => {
       if (!header.current?.contains(e.target)) setOpen(false);
     };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("keydown", close);
     document.addEventListener("pointerdown", outside);
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
       window.removeEventListener("keydown", close);
       document.removeEventListener("pointerdown", outside);
     };
   }, []);
+  useEffect(() => {
+    const position = () => {
+      const el = links.current?.querySelector("[aria-current]");
+      if (el) {
+        highlight.current.style.width = `${el.offsetWidth}px`;
+        highlight.current.style.transform = `translateX(${el.offsetLeft}px)`;
+      }
+    };
+    position();
+    window.addEventListener("resize", position);
+    return () => window.removeEventListener("resize", position);
+  }, [active, open]);
   return (
     <header className="nav-wrap" ref={header}>
-      <nav className="nav shell" aria-label="Main navigation">
+      <nav className="nav shell" aria-label="Workspace navigation">
         <a
           className="brand"
           href="#home"
+          aria-label="ArchNemesis home"
           onClick={() => setOpen(false)}
-          aria-label="nihitdev home"
         >
+          <ArchLogo />
           <span>
-            n<span className="accent">.</span>
-          </span>
-          <span>
-            nihitdev<span className="brand-slash"> / </span>
+            Arch<span className="accent">Nemesis</span>
+            <small>NIHIT'S PERSONAL ENVIRONMENT</small>
           </span>
         </a>
         <button
-          ref={menuButton}
+          ref={menu}
           className="menu-button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
           aria-controls="navigation"
+          aria-expanded={open}
           aria-label={open ? "Close navigation" : "Open navigation"}
+          onClick={() => setOpen(!open)}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X /> : <Menu />}
         </button>
         <div
           id="navigation"
+          ref={links}
           className={`nav-links ${open ? "open" : ""}`}
           onBlur={(e) => {
             if (
               !e.currentTarget.contains(e.relatedTarget) &&
-              e.relatedTarget !== menuButton.current
+              e.relatedTarget !== menu.current
             )
               setOpen(false);
           }}
         >
-          {navItems.map((item) => (
+          <span
+            ref={highlight}
+            className="workspace-highlight"
+            aria-hidden="true"
+          />
+          {items.map(([id, label], i) => (
             <a
-              key={item.href}
-              href={item.href}
-              aria-current={active === item.href ? "location" : undefined}
-              onClick={() => setOpen(false)}
+              key={id}
+              href={`#${id}`}
+              aria-current={active === id ? "location" : undefined}
+              onClick={() => {
+                setActive(id);
+                setOpen(false);
+              }}
             >
-              {item.label}
-              {item.href === "#contact" && <ArrowUpRight size={13} />}
+              <span>{i + 1}</span>
+              {label}
             </a>
           ))}
         </div>
+        <span className="nav-online">
+          <Wifi size={13} />
+          <i className="status-dot" /> online
+        </span>
       </nav>
     </header>
   );
