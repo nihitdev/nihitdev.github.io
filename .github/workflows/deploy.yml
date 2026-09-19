@@ -1,4 +1,4 @@
-name: Deploy portfolio to GitHub Pages
+name: Continuous deployment
 
 on:
   push:
@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   build:
+    name: Validate and package site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

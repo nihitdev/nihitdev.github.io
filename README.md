@@ -6,6 +6,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live_Site-nihit.is--a.dev-7c3aed?style=for-the-badge&logo=googlechrome&logoColor=white)](https://nihit.is-a.dev)
 [![GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
+[![CI](https://github.com/nihitdev/nihitdev.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/nihitdev/nihitdev.github.io/actions/workflows/ci.yml)
 
 </div>
 
@@ -67,6 +68,8 @@ npm run dev
 npm run lint
 npm test
 ```
+
+Every push and pull request runs linting, formatting checks, the production build, and the regression tests on Node 20 and 22. Pull requests also receive dependency review. Successful pushes to `main` are packaged and deployed to GitHub Pages by the continuous-deployment workflow. Dependabot checks npm packages and GitHub Actions weekly and groups related updates into focused pull requests.
 
 ## Design and content
 
