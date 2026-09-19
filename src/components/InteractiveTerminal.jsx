@@ -72,7 +72,7 @@ export default function InteractiveTerminal() {
         break;
       case "contact":
         text =
-          "Email: nihitdev@proton.me\nDiscord: nihitdev\nhttps://github.com/nihitdev/chat/discussions";
+          "Email: hello@nihit.is-a.dev\nCode: code.nihit.dev@gmail.com\nDiscord: nihitdev\nhttps://github.com/nihitdev/chat/discussions";
         break;
       case "neofetch":
         text =

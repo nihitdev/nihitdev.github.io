@@ -28,8 +28,11 @@ export default function Contact() {
           Have a project in mind, a question, or a cool terminal setup?
           <br /> I’d love to hear about it.
         </p>
-        <a className="email-link" href="mailto:nihitdev@proton.me">
-          nihitdev@proton.me <ArrowUpRight />
+        <a className="email-link" href="mailto:hello@nihit.is-a.dev">
+          hello@nihit.is-a.dev <ArrowUpRight />
+        </a>
+        <a className="email-secondary" href="mailto:code.nihit.dev@gmail.com">
+          code.nihit.dev@gmail.com <ArrowUpRight />
         </a>
         <div className="contact-bottom">
           <a

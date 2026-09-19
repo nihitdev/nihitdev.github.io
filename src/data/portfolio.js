@@ -1,9 +1,52 @@
-export const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Toolbox", href: "#toolbox" },
-  { label: "Projects", href: "#projects" },
-  { label: "Open source", href: "#now" },
-  { label: "Contact", href: "#contact" },
+export const workspaces = [
+  {
+    id: "home",
+    label: "HOME",
+    title: "Home",
+    description: "Back to the desktop",
+    keywords: "identity whoami",
+  },
+  {
+    id: "about",
+    label: "ABOUT",
+    title: "About Nihit",
+    description: "The person behind the configs",
+    keywords: "bio identity",
+  },
+  {
+    id: "projects",
+    label: "PROJECTS",
+    title: "All projects",
+    description: "Explore the workbench",
+    keywords: "repositories work",
+  },
+  {
+    id: "toolbox",
+    label: "STACK",
+    title: "Technology stack",
+    description: "Tools I reach for",
+    keywords: "skills languages",
+  },
+  {
+    id: "terminal",
+    title: "Interactive terminal",
+    description: "Open a shell. Try help or neofetch.",
+    keywords: "commands cli shell",
+  },
+  {
+    id: "now",
+    label: "GITHUB",
+    title: "GitHub & activity",
+    description: "Built in the open",
+    keywords: "source current",
+  },
+  {
+    id: "contact",
+    label: "CONTACT",
+    title: "Get in touch",
+    description: "Email, Discord, and discussions",
+    keywords: "email discord hello",
+  },
 ];
 
 export const toolbox = [
@@ -76,11 +119,18 @@ export const toolbox = [
 
 export const projects = [
   {
-    title: "dotfiles",
+    title: "kairo",
     description:
-      "My current terminal, shell, prompt, editor, theme, and desktop configuration collection.",
+      "A personal terminal, shell, prompt, editor, theme, and desktop configuration system.",
     tags: ["Dotfiles", "Fish", "Zsh", "CSS"],
-    href: "https://github.com/nihitdev/dotfiles",
+    href: "https://github.com/nihitdev/kairo",
+  },
+  {
+    title: "kairo-shell",
+    description:
+      "A focused shell environment built around fast prompts, useful aliases, and a calmer command-line workflow.",
+    tags: ["Shell", "Fish", "Zsh", "CLI"],
+    href: "https://github.com/nihitdev/kairo-shell",
   },
   {
     title: "shellcord",
@@ -88,13 +138,6 @@ export const projects = [
       "A shell-inspired Discord theme with modular customization, Catppuccin colors, and terminal aesthetics.",
     tags: ["CSS", "Discord", "Catppuccin"],
     href: "https://github.com/nihitdev/shellcord",
-  },
-  {
-    title: "arch-after-install",
-    description:
-      "A practical post-install checklist for Arch Linux and CachyOS, with a small system-check utility.",
-    tags: ["Arch Linux", "CachyOS", "Niri"],
-    href: "https://github.com/nihitdev/arch-after-install",
   },
   {
     title: "shell-prompts",
@@ -111,11 +154,11 @@ export const projects = [
     href: "https://github.com/nihitdev/terminal-playground",
   },
   {
-    title: "linux-one-liners",
+    title: "yo-cli",
     description:
-      "Useful Linux one-liners grouped by files, processes, networking, disks, permissions, packages, text, and system.",
-    tags: ["Linux", "Shell", "Reference"],
-    href: "https://github.com/nihitdev/linux-one-liners",
+      "A small command-line companion for getting useful project workflows started quickly.",
+    tags: ["CLI", "Shell", "Developer tools"],
+    href: "https://github.com/nihitdev/yo-cli",
   },
   {
     title: "starship-presets",

@@ -7,14 +7,14 @@ import SectionHeading from "./SectionHeading";
 function ProjectVisual({ variant }) {
   return (
     <div className={`project-visual ${variant}`} aria-hidden="true">
-      {variant === "dotfiles" ? (
+      {variant === "kairo" ? (
         <div className="mini-terminal">
           <div className="mini-bar">
             <span>● ● ●</span> ~/.config / a setup of my own
           </div>
           <div className="mini-content">
             <span className="config-tree">
-              .config
+              kairo
               <br />
               ├── fish
               <br />
@@ -44,7 +44,7 @@ function ProjectVisual({ variant }) {
             <b>shellcord</b>
             <span># general</span>
             <span className="selected"># terminal-talk</span>
-            <span># dotfiles</span>
+            <span># kairo</span>
             <small>VOICE CHANNELS</small>
             <span>⌁ the workspace</span>
           </div>

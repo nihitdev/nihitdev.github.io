@@ -1,3 +1,4 @@
+import Telemetry from "../motion/Telemetry";
 import { useRef } from "react";
 import { ArrowDown, ArrowUpRight, GitBranch, Terminal } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
@@ -75,6 +76,7 @@ export default function Hero({ ready = true }) {
           </div>
         </div>
         <div className="hero-visual">
+          <Telemetry />
           <div className="orbital orbital-outer" aria-hidden="true" />
           <div className="orbital orbital-inner" aria-hidden="true" />
           <span className="visual-coordinate">
@@ -131,8 +133,8 @@ export default function Hero({ ready = true }) {
                   "#a6e3a1",
                   "#f9e2af",
                   "#cdd6f4",
-                ].map((c) => (
-                  <i key={c} style={{ background: c }} />
+                ].map((c, i) => (
+                  <i key={c} style={{ background: c, "--i": i }} />
                 ))}
               </div>
               <div className="hero-terminal-rule" />

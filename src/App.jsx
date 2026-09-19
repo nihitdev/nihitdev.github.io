@@ -6,7 +6,9 @@ import {
   useRef,
   useState,
 } from "react";
+import MotionDetails from "./motion/MotionDetails";
 import Navbar from "./components/Navbar";
+import CommandPalette from "./components/CommandPalette";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Toolbox from "./components/Toolbox";
@@ -60,6 +62,16 @@ export default function App() {
       document.querySelector("#main")?.focus({ preventScroll: true });
   }, [boot]);
   useEffect(() => {
+    const visibility = () =>
+      document.documentElement.toggleAttribute(
+        "data-page-hidden",
+        document.hidden,
+      );
+    visibility();
+    document.addEventListener("visibilitychange", visibility);
+    return () => document.removeEventListener("visibilitychange", visibility);
+  }, []);
+  useEffect(() => {
     const media = matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
       setReduced(media.matches);
@@ -75,6 +87,14 @@ export default function App() {
     savePreference("arch:quality", quality);
     savePreference("arch:crt", String(crt));
   }, [quality, reduced, crt]);
+  useEffect(() => {
+    // Resolve initial deep links after React mounts the interactive layout.
+    const frame = requestAnimationFrame(() => {
+      const id = location.hash.slice(1);
+      if (id) document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -195,6 +215,7 @@ export default function App() {
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <MotionDetails enabled={!boot && !reduced && quality !== "low"} />
         <Navbar />
         <div
           className="system-toolbar"
@@ -209,6 +230,7 @@ export default function App() {
             </span>
           </span>
           <div>
+            <CommandPalette />
             <label>
               FX{" "}
               <select
@@ -248,22 +270,35 @@ export default function App() {
             id="terminal"
             ref={terminalSlot}
           >
-            <Suspense
+            <EffectBoundary
               fallback={
-                <div className="terminal-loading">
-                  &gt; mounting ~/terminal...{" "}
-                  <span className="block-cursor">▌</span>
+                <div className="terminal-loading" role="status">
+                  The terminal could not load.{" "}
+                  <a href="#projects">Explore the projects</a> or{" "}
+                  <button onClick={() => location.reload()}>
+                    reload to try again
+                  </button>
+                  .
                 </div>
               }
             >
-              {terminalReady ? (
-                <InteractiveTerminal />
-              ) : (
-                <div className="terminal-loading">
-                  &gt; terminal ready to mount...
-                </div>
-              )}
-            </Suspense>
+              <Suspense
+                fallback={
+                  <div className="terminal-loading">
+                    &gt; mounting ~/terminal...{" "}
+                    <span className="block-cursor">▌</span>
+                  </div>
+                }
+              >
+                {terminalReady ? (
+                  <InteractiveTerminal />
+                ) : (
+                  <div className="terminal-loading">
+                    &gt; terminal ready to mount...
+                  </div>
+                )}
+              </Suspense>
+            </EffectBoundary>
           </section>
           <Now />
           <Contact />

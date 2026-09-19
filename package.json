@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "test": "npm run build && node --test scripts/portfolio.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

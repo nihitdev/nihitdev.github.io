@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, Wifi } from "lucide-react";
 import { ArchLogo } from "../motion/Primitives";
-const items = [
-  ["home", "HOME"],
-  ["about", "ABOUT"],
-  ["projects", "PROJECTS"],
-  ["toolbox", "STACK"],
-  ["now", "GITHUB"],
-  ["contact", "CONTACT"],
-];
+import { workspaces } from "../data/portfolio";
+const items = workspaces
+  .filter((item) => item.label)
+  .map(({ id, label }) => [id, label]);
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");

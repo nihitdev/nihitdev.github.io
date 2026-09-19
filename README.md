@@ -29,16 +29,16 @@ Editor    Neovim / Nano
 ## Featured ecosystem
 
 - `terminal-playground`
-- `dotfiles-check`
-- `arch-after-install`
-- `linux-one-liners`
+- `kairo`
+- `kairo-shell`
+- `yo-cli`
 - `nerd-font-glyphs`
 - `shell-snippets`
 - `starship-presets`
 - `cli-cheatsheets`
 - `terminal-colors`
 - `prompt-symbols`
-- `dotfiles`
+- `kairo`
 - `shellcord`
 
 ## Tech stack
@@ -65,6 +65,7 @@ npm run dev
 
 ```bash
 npm run lint
+npm test
 ```
 
 ## Design and content
@@ -72,6 +73,8 @@ npm run lint
 The portfolio is ArchNemesis: a purple-black Linux environment with a cinematic boot, workspace navigation, interactive terminal, tilting project windows, technology constellation, particles, CRT controls, and reduced-motion support. Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. The first two projects receive featured styling; their previews are CSS illustrations, not screenshots. Add a `demo` URL to a featured project to show its live-demo link.
 
 Contact details are in `src/components/Contact.jsx`. Discord copies the username `nihitdev`, with a visible fallback if clipboard access is unavailable. The featured repository count and branch visualization are derived from local project data; no external stats API is used.
+
+The site starts on a dark canvas and renders directly through React, avoiding a flash of static content before the boot sequence. `npm test` builds the site and checks the startup shell, workspace identifiers, and metadata.
 
 See [ArchNemesis implementation and QA notes](docs/ARCHNEMESIS.md) for controls, architecture, performance decisions, and verification.
 
