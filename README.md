@@ -69,7 +69,7 @@ npm run lint
 npm test
 ```
 
-Every push and pull request runs linting, formatting checks, the production build, and the regression tests on Node 20 and 22. Pull requests also receive dependency review. Successful pushes to `main` are packaged and deployed to GitHub Pages by the continuous-deployment workflow. Dependabot checks npm packages and GitHub Actions weekly and groups related updates into focused pull requests.
+Every push and pull request runs linting, formatting checks, the production build, regression tests on Node 20 and 22, and a high-severity production dependency audit. Successful pushes to `main` are packaged and deployed to GitHub Pages by the continuous-deployment workflow. Dependabot checks npm packages and GitHub Actions weekly and groups related updates into focused pull requests.
 
 ## Design and content
 
