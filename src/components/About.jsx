@@ -41,7 +41,7 @@ export default function About() {
               ["OS", "Arch Linux"],
               ["Shell", "Fish / Zsh"],
               ["Desktop", "Hyprland / Niri"],
-              ["Terminal", "Konsole"],
+              ["Terminal", "Kitty"],
               ["Prompt", "Starship"],
               ["Editor", "Neovim / Nano"],
             ].map(([key, value]) => (

@@ -87,7 +87,7 @@ export const toolbox = [
       "JetBrains",
       "Vim",
       "Neovim",
-      "Konsole",
+      "Kitty",
       "Starship",
       "tmux",
       "fzf",
@@ -180,7 +180,7 @@ export const nowItems = [
   {
     title: "Living in the terminal",
     description:
-      "Tuning Fish, Zsh, Starship, Konsole, Neovim, and the tiny details that make a shell feel like home.",
+      "Tuning Fish, Zsh, Starship, Kitty, Neovim, and the tiny details that make a shell feel like home.",
     command: "exec fish",
   },
   {

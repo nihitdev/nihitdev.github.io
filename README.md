@@ -22,7 +22,7 @@ The site reflects my current setup:
 OS        Arch Linux
 Shell     Fish / Zsh
 Desktop   Hyprland / Niri
-Terminal  Konsole
+Terminal  Kitty
 Prompt    Starship
 Editor    Neovim / Nano
 ```
@@ -94,7 +94,7 @@ npm run preview
 
 <div align="center">
 
-Built on Linux, probably from Konsole.
+Built on Linux, probably from Kitty.
 
 **[Visit the portfolio](https://nihit.is-a.dev)** · **[GitHub](https://github.com/nihitdev)**
 

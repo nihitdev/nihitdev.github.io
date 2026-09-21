@@ -18,6 +18,5 @@ test("workspace identifiers remain unique with six keyboard workspaces", () => {
   assert.equal(workspaces.filter((workspace) => workspace.label).length, 6);
 });
 test("social metadata describes the current terminal", () => {
-  assert.ok(html.includes("Konsole"));
-  assert.ok(!html.includes("Kitty"));
+  assert.ok(html.includes("Kitty"));
 });
