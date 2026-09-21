@@ -11,9 +11,9 @@
     "test": "npm run build && node --test scripts/portfolio.test.mjs"
   },
   "dependencies": {
-    "lucide-react": "^1.25.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "lucide-react": "^1.47.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
