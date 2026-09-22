@@ -106,7 +106,7 @@ export default function CommandPalette() {
       >
         <div className="command-panel">
           <div className="command-titlebar">
-            <span id="command-title">ArchNemesis / command palette</span>
+            <span id="command-title">Search the portfolio</span>
             <button
               onClick={() => dialog.current.close()}
               aria-label="Close command palette"

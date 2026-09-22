@@ -1,271 +1,127 @@
 .command-trigger {
+  min-width: 44px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  color: #c9aedf;
-  padding: 6px 8px;
-  border: 1px solid #b98dda33;
-  border-radius: 4px;
-  transition:
-    background 0.18s,
-    border-color 0.18s,
-    transform 0.18s;
-  font-size: 8px;
-  letter-spacing: 0.8px;
 }
-.command-trigger:hover {
-  border-color: #c39afa88;
-  background: #c39afa10;
-  transform: translateY(-1px);
-}
+.command-trigger > span,
 .command-trigger kbd {
-  font: 8px var(--mono);
-  letter-spacing: 0;
-  color: #aa92bf;
-  border-left: 1px solid var(--line);
-  padding-left: 8px;
+  display: none;
+}
+.command-trigger svg {
+  width: 18px;
+  height: 18px;
 }
 .command-palette {
   position: fixed;
   inset: 0;
   margin: auto;
   width: min(640px, calc(100% - 32px));
-  max-height: min(620px, calc(100dvh - 48px));
+  max-height: calc(100dvh - 48px);
   padding: 0;
   overflow: auto;
-  overscroll-behavior: contain;
-  border: 1px solid #be92e66b;
-  border-radius: 10px;
-  background: #110c1a;
-  color: #dfcdec;
-  box-shadow:
-    0 30px 100px #000a,
-    0 0 45px #b178e012;
-  letter-spacing: 0;
-}
-.command-palette[open] {
-  animation: window-in 0.25s var(--ease);
-}
-.command-palette::backdrop {
-  background: #07050ddc;
-  backdrop-filter: blur(6px);
 }
 .command-panel {
   display: flex;
   flex-direction: column;
-  max-height: min(618px, calc(100dvh - 50px));
+  max-height: min(620px, calc(100dvh - 50px));
 }
 .command-titlebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 17px;
+  padding: 10px 18px;
   border-bottom: 1px solid var(--line);
-  color: #b299c5;
-  font: 9px var(--mono);
-  letter-spacing: 0.5px;
+  font-size: 13px;
+  color: var(--muted);
 }
 .command-titlebar button {
-  display: grid;
-  place-items: center;
-  min-height: 32px;
-  min-width: 32px;
-  border-radius: 4px;
-  color: #c5a4df;
-}
-.command-titlebar button:hover {
-  background: #c39afa15;
+  width: 44px;
+  height: 44px;
 }
 .command-search {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 22px;
-  border-bottom: 1px solid #be92e631;
-  color: var(--accent);
-}
-.command-search > span {
-  font-size: 20px;
-  color: var(--pink);
+  gap: 12px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--line);
 }
 .command-search input {
-  background: none;
-  border: 0;
-  outline: none;
   min-width: 0;
   width: 100%;
-  font: 14px var(--mono);
-  color: #eee0f7;
   padding: 8px 0;
-  caret-color: var(--pink);
+  background: none;
+  color: var(--text);
+  border: 0;
+  font-size: 16px;
 }
 .command-search input::placeholder {
-  color: #a38eb5;
-}
-.command-search:focus-within {
-  box-shadow: inset 3px 0 #c39afa;
+  color: var(--muted);
 }
 .command-results {
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #614772 transparent;
   padding: 8px;
   min-height: 0;
 }
-.command-palette .command-result {
+.command-result {
   display: flex;
   align-items: center;
-  gap: 13px;
-  min-height: 65px;
-  padding: 12px 14px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  transition:
-    background 0.15s,
-    border-color 0.15s;
-  color: #d7bde9;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 3px;
 }
-.command-palette .command-result[aria-selected="true"] {
-  background: #bf8fe716;
-  border-color: #bf8fe72e;
-}
-.command-palette .command-result:hover {
-  background: #bf8fe723;
-  border-color: #bf8fe750;
+.command-result[aria-selected="true"],
+.command-result:hover {
+  background: var(--surface);
 }
 .command-symbol {
-  font: 10px var(--mono);
-  color: #a785bf;
-  width: 22px;
-  flex-shrink: 0;
+  font: 12px var(--mono);
+  color: var(--muted);
 }
 .command-copy {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
   flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 .command-copy strong {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 550;
 }
 .command-copy > span {
-  font-size: 9px;
-  line-height: 1.6;
-  color: #b09bbf;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--muted);
 }
 .command-kind {
-  font-size: 7px;
-  letter-spacing: 1px;
-  color: #b196c4;
-}
-.command-result > svg {
-  color: #b795d0;
+  display: none;
 }
 .command-footer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 13px 18px;
+  padding: 15px 18px;
   border-top: 1px solid var(--line);
-  color: #b099bf;
-  font-size: 8px;
-  flex-shrink: 0;
-}
-.command-footer > span:first-child {
-  display: flex;
-  align-items: center;
-  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
 }
 .command-footer kbd {
-  font: 8px var(--mono);
-  border: 1px solid #b98dda30;
-  border-radius: 3px;
-  padding: 3px 5px;
-  color: #d0b6e2;
+  margin-right: 4px;
 }
 .command-empty {
-  padding: 42px 22px 48px;
-  text-align: center;
-  font-size: 13px;
-  color: #cfb1e4;
+  padding: 30px;
 }
 .command-empty p {
-  font-size: 10px;
-  color: #b099bf;
-  margin: 13px 0 0;
+  font-size: 14px;
 }
 @media (max-width: 580px) {
-  .command-trigger {
-    min-width: 32px;
-    min-height: 32px;
-    justify-content: center;
-    padding: 7px;
-  }
-  .command-trigger > span,
-  .command-trigger kbd {
-    display: none;
-  }
-  .command-palette {
-    max-height: calc(100dvh - 28px);
-  }
-  .command-panel {
-    max-height: calc(100dvh - 30px);
-  }
-  .command-search {
-    padding: 13px 16px;
-    gap: 10px;
-  }
-  .command-search input {
-    font-size: 16px;
-  }
-  .command-kind {
-    display: none;
-  }
-  .command-palette .command-result {
-    gap: 9px;
-    padding: 12px 9px;
-    min-height: 67px;
-  }
-  .command-copy strong {
-    font-size: 11px;
-  }
   .command-copy > span {
-    font-size: 9px;
+    font-size: 12px;
   }
   .command-footer {
-    padding: 12px;
-    font-size: 7px;
-  }
-  .command-footer > span:first-child {
-    gap: 4px;
-  }
-  .command-footer kbd {
-    font-size: 7px;
-    padding: 3px;
-  }
-  .command-titlebar {
-    padding: 8px 13px;
-    font-size: 8px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .command-palette[open] {
-    animation: none;
-  }
-  .command-trigger,
-  .command-result {
-    transition: none !important;
-  }
-  .command-trigger:hover {
-    transform: none;
+    flex-wrap: wrap;
   }
 }

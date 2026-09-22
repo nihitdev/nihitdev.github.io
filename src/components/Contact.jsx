@@ -14,15 +14,12 @@ export default function Contact() {
   return (
     <section id="contact" className="section shell reveal">
       <div className="contact-card">
-        <p className="eyebrow">06 / ESTABLISH A CONNECTION</p>
+        <p className="eyebrow">GET IN TOUCH</p>
         <div className="contact-heading">
           <h2>
             Good things start
             <br /> with a <span>conversation.</span>
           </h2>
-          <span className="contact-asterisk" aria-hidden="true">
-            ✦
-          </span>
         </div>
         <p>
           Have a project in mind, a question, or a cool terminal setup?
@@ -57,9 +54,6 @@ export default function Contact() {
           >
             Discussions <ArrowUpRight size={14} />
           </a>
-          <span className="contact-status">
-            <span className="dot" /> OPEN TO A GOOD CONVERSATION
-          </span>
         </div>
         <p className="copy-message" role="status">
           {message}

@@ -1,126 +1,87 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Wifi } from "lucide-react";
-import { ArchLogo } from "../motion/Primitives";
-import { workspaces } from "../data/portfolio";
-const items = workspaces
-  .filter((item) => item.label)
-  .map(({ id, label }) => [id, label]);
+import { Menu, X, Sun, Moon } from "lucide-react";
+import CommandPalette from "./CommandPalette";
+import { savePreference } from "../motion/config";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("home");
-  const header = useRef(null);
+  const [theme, setTheme] = useState(
+    () => document.documentElement.dataset.theme || "light",
+  );
   const menu = useRef(null);
-  const links = useRef(null);
-  const highlight = useRef(null);
+  const header = useRef(null);
   useEffect(() => {
-    let frame;
-    const update = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        let current = "home";
-        for (const [id] of items) {
-          if (document.getElementById(id)?.getBoundingClientRect().top <= 200)
-            current = id;
-        }
-        setActive(current);
-      });
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    const close = (e) => {
-      if (e.key === "Escape") {
+    const close = (event) => {
+      if (event.key === "Escape") {
         setOpen(false);
-        if (menu.current?.getAttribute("aria-expanded") === "true")
-          menu.current.focus();
+        if (open) menu.current.focus();
       }
     };
-    const outside = (e) => {
-      if (!header.current?.contains(e.target)) setOpen(false);
+    const outside = (event) => {
+      if (!header.current.contains(event.target)) setOpen(false);
     };
     window.addEventListener("keydown", close);
     document.addEventListener("pointerdown", outside);
     return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
       window.removeEventListener("keydown", close);
       document.removeEventListener("pointerdown", outside);
     };
-  }, []);
-  useEffect(() => {
-    const position = () => {
-      const el = links.current?.querySelector("[aria-current]");
-      if (el) {
-        highlight.current.style.width = `${el.offsetWidth}px`;
-        highlight.current.style.transform = `translateX(${el.offsetLeft}px)`;
-      }
-    };
-    position();
-    window.addEventListener("resize", position);
-    return () => window.removeEventListener("resize", position);
-  }, [active, open]);
+  }, [open]);
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    document.querySelector('meta[name="theme-color"]').content =
+      next === "dark" ? "#191a19" : "#faf9f6";
+    savePreference("portfolio:theme", next);
+  }
   return (
     <header className="nav-wrap" ref={header}>
-      <nav className="nav shell" aria-label="Workspace navigation">
-        <a
-          className="brand"
-          href="#home"
-          aria-label="ArchNemesis home"
-          onClick={() => setOpen(false)}
-        >
-          <ArchLogo />
-          <span>
-            Arch<span className="accent">Nemesis</span>
-            <small>NIHIT'S PERSONAL ENVIRONMENT</small>
-          </span>
+      <nav className="nav shell" aria-label="Main navigation">
+        <a className="brand" href="#home" onClick={() => setOpen(false)}>
+          nihitdev<span className="accent"> /</span>
         </a>
-        <button
-          ref={menu}
-          className="menu-button"
-          aria-controls="navigation"
-          aria-expanded={open}
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
         <div
           id="navigation"
-          ref={links}
           className={`nav-links ${open ? "open" : ""}`}
-          onBlur={(e) => {
+          onBlur={(event) => {
             if (
-              !e.currentTarget.contains(e.relatedTarget) &&
-              e.relatedTarget !== menu.current
+              !event.currentTarget.contains(event.relatedTarget) &&
+              event.relatedTarget !== menu.current
             )
               setOpen(false);
           }}
         >
-          <span
-            ref={highlight}
-            className="workspace-highlight"
-            aria-hidden="true"
-          />
-          {items.map(([id, label], i) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              aria-current={active === id ? "location" : undefined}
-              onClick={() => {
-                setActive(id);
-                setOpen(false);
-              }}
-            >
-              <span>{i + 1}</span>
+          {[
+            ["projects", "Projects"],
+            ["about", "About"],
+            ["terminal", "Terminal"],
+            ["contact", "Contact"],
+          ].map(([id, label]) => (
+            <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
               {label}
             </a>
           ))}
         </div>
-        <span className="nav-online">
-          <Wifi size={13} />
-          <i className="status-dot" /> online
-        </span>
+        <div className="nav-actions">
+          <CommandPalette />
+          <button
+            className="icon-button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
+          </button>
+          <button
+            ref={menu}
+            className="icon-button menu-button"
+            aria-controls="navigation"
+            aria-expanded={open}
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
     </header>
   );
