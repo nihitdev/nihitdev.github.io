@@ -2,38 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <style>
-      html {
-        background: #faf9f6;
-        color-scheme: light;
-      }
-      html[data-theme="dark"] {
-        background: #191a19;
-        color-scheme: dark;
-      }
-    </style>
-    <script>
-      (() => {
-        let theme;
-        try {
-          theme = localStorage.getItem("portfolio:theme");
-        } catch {
-          /* Storage is optional. */
-        }
-        document.documentElement.dataset.theme =
-          theme === "light" || theme === "dark"
-            ? theme
-            : matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
-      })();
-    </script>
+    <style>html, body { background: #09080f; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Nihit Sunhare builds Linux tools and dotfiles on Arch Linux with Hyprland, Zsh, Kitty, Starship, Neovim, and Podman."
     />
-    <meta name="theme-color" content="#faf9f6" />
+    <meta name="theme-color" content="#09080f" />
     <meta
       property="og:title"
       content="Nihit Sunhare — Linux · Terminal · Developer Tools"
@@ -51,7 +26,7 @@
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="dark" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -64,7 +39,7 @@
     <meta name="twitter:image" content="https://nihit.is-a.dev/og-card.png" />
     <link rel="canonical" href="https://nihit.is-a.dev" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Nihit Sunhare · Developer & Linux Enthusiast</title>
+    <title>ArchNemesis — Nihit Sunhare · Developer & Linux Enthusiast</title>
   </head>
   <body>
     <div id="root"></div>

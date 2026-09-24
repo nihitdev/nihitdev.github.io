@@ -3,7 +3,7 @@ export const workspaces = [
     id: "home",
     label: "HOME",
     title: "Home",
-    description: "Back to the introduction",
+    description: "Back to the desktop",
     keywords: "identity whoami",
   },
   {

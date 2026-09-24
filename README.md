@@ -39,7 +39,7 @@ Editor    Neovim / Nano
 - `cli-cheatsheets`
 - `terminal-colors`
 - `prompt-symbols`
-- `shell-prompts`
+- `kairo`
 - `shellcord`
 
 ## Tech stack
@@ -48,7 +48,7 @@ Editor    Neovim / Nano
 | --------- | ------------------------------------------------- |
 | UI        | React 19                                          |
 | Styling   | Tailwind CSS 4 + custom CSS                       |
-| Animation | Subtle CSS hover transitions |
+| Animation | CSS + shared canvas/RAF + IntersectionObserver |
 | Icons     | Lucide React                                      |
 | Tooling   | Vite 8                                            |
 | Hosting   | GitHub Pages                                      |
@@ -73,17 +73,13 @@ Every push and pull request runs linting, formatting checks, the production buil
 
 ## Design and content
 
-The portfolio uses a minimal text-led layout, comfortable typography, a muted green accent, and light/dark themes. It respects the system color scheme on first visit and saves an explicit theme choice. There are no ambient animations, boot delays, custom cursors, external fonts, or stats requests. Reduced motion disables transitions.
+The portfolio is ArchNemesis: a purple-black Linux environment with a cinematic boot, workspace navigation, interactive terminal, tilting project windows, technology constellation, particles, CRT controls, and reduced-motion support. Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. The first two projects receive featured styling; their previews are CSS illustrations, not screenshots. Add a `demo` URL to a featured project to show its live-demo link.
 
-Project descriptions, repository links, and toolbox groups live in `src/data/portfolio.js`. Three projects appear initially; the remaining projects and complete toolbox are available through expandable sections. Every project has a details dialog; optional `demo` URLs are supported there. The original biography, daily driver, current activities, and contact links are retained.
+Contact details are in `src/components/Contact.jsx`. Discord copies the username `nihitdev`, with a visible fallback if clipboard access is unavailable. The featured repository count and branch visualization are derived from local project data; no external stats API is used.
 
-Contact details are in `src/components/Contact.jsx`. Discord copies `nihitdev`, with a visible fallback if clipboard access is unavailable. Search sections and repositories with the header search button or Ctrl/Cmd+K. Alt+1–6 navigation and existing section URLs remain supported.
+The site starts on a dark canvas and renders directly through React, avoiding a flash of static content before the boot sequence. `npm test` builds the site and checks the startup shell, workspace identifiers, and metadata.
 
-The simulated terminal supports real directory state: `cd projects`, `ls`, `cd kairo`, `cat README.md`, `cd ..`, `cd ~`, and `cd -`. Arrow keys browse history; Tab completes unambiguous commands and paths. Ctrl+L clears output. No commands execute on the host machine. The command interpreter is in `src/lib/shell.js` and covered by Node regression tests.
-
-`npm test` builds the site and checks startup themes, metadata, workspace identifiers, shell navigation, file reads, errors, and completion. This JavaScript project has no separate typecheck script.
-
-See [design and verification notes](docs/ARCHNEMESIS.md) for architecture and controls.
+See [ArchNemesis implementation and QA notes](docs/ARCHNEMESIS.md) for controls, architecture, performance decisions, and verification.
 
 The favicon and social card are served locally from `public/`. `og-card.svg` is the editable source for the 1200 × 630 PNG used by social metadata.
 
