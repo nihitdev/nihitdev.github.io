@@ -470,7 +470,7 @@
     width: 100%;
   }
   .footer {
-    font-size: 7px;
+    font-size: 13px;
     gap: 15px;
   }
   .footer > span:nth-last-child(2) {
@@ -980,7 +980,7 @@
   }
   .footer {
     flex-wrap: wrap;
-    font-size: 7px;
+    font-size: 13px;
     padding-bottom: 65px;
     gap: 18px;
   }
