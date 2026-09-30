@@ -137,8 +137,8 @@ export const projects = [
   {
     title: "kairo-shell",
     description:
-      "A focused shell environment built around fast prompts, useful aliases, and a calmer command-line workflow.",
-    tags: ["Shell", "Fish", "Zsh", "CLI"],
+      "Kairo Shell — a Hyprland desktop shell for Kairo",
+    tags: ["Hyprland", "Desktop shell", "Kairo"],
     href: "https://github.com/nihitdev/kairo-shell",
   },
   {

@@ -10,7 +10,7 @@ function ProjectVisual({ variant }) {
       {variant !== "shellcord" ? (
         <div className="mini-terminal">
           <div className="mini-bar">
-            <span>● ● ●</span> {variant === "yo-cli" ? "~/projects / yo-cli" : variant === "kairo-shell" ? "~/terminal / kairo-shell" : "~/.config / a setup of my own"}
+            <span>● ● ●</span> {variant === "yo-cli" ? "~/projects / yo-cli" : variant === "kairo-shell" ? "~/desktop / kairo-shell" : "~/.config / a setup of my own"}
           </div>
           <div className="mini-content">
             <span className="config-tree">
@@ -24,9 +24,9 @@ function ProjectVisual({ variant }) {
               ) : variant === "kairo-shell" ? (
                 <>
                   kairo-shell<br />
-                  ├── fast prompts<br />
-                  ├── useful aliases<br />
-                  ╰── a calmer command line
+                  ├── Hyprland<br />
+                  ├── desktop shell<br />
+                  ╰── built for Kairo
                 </>
               ) : (
                 <>
