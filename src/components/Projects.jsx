@@ -7,22 +7,36 @@ import SectionHeading from "./SectionHeading";
 function ProjectVisual({ variant }) {
   return (
     <div className={`project-visual ${variant}`} aria-hidden="true">
-      {variant === "kairo" ? (
+      {variant !== "shellcord" ? (
         <div className="mini-terminal">
           <div className="mini-bar">
-            <span>● ● ●</span> ~/.config / a setup of my own
+            <span>● ● ●</span> {variant === "yo-cli" ? "~/projects / yo-cli" : variant === "kairo-shell" ? "~/terminal / kairo-shell" : "~/.config / a setup of my own"}
           </div>
           <div className="mini-content">
             <span className="config-tree">
-              kairo
-              <br />
-              ├── fish
-              <br />
-              ├── nvim
-              <br />
-              ├── starship.toml
-              <br />
-              ╰── a little personality
+              {variant === "yo-cli" ? (
+                <>
+                  ❯ yo-cli<br />
+                  ├── project workflows<br />
+                  ├── developer tools<br />
+                  ╰── ready to get started
+                </>
+              ) : variant === "kairo-shell" ? (
+                <>
+                  kairo-shell<br />
+                  ├── fast prompts<br />
+                  ├── useful aliases<br />
+                  ╰── a calmer command line
+                </>
+              ) : (
+                <>
+                  kairo<br />
+                  ├── fish<br />
+                  ├── nvim<br />
+                  ├── starship.toml<br />
+                  ╰── a little personality
+                </>
+              )}
             </span>
             <span className="config-symbol">
               ❯<span>_</span>
@@ -131,7 +145,7 @@ export default function Projects() {
               <div className="project-top">
                 <span>
                   <span className="dot" />{" "}
-                  {i === 0 ? "THE PERSONAL SETUP" : "A DIFFERENT KIND OF THEME"}
+                  {project.label}
                 </span>
                 <span>0{i + 1}</span>
               </div>

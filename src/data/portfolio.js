@@ -119,7 +119,16 @@ export const toolbox = [
 
 export const projects = [
   {
+    title: "yo-cli",
+    label: "A COMMAND-LINE COMPANION",
+    description:
+      "A small command-line companion for getting useful project workflows started quickly.",
+    tags: ["CLI", "Shell", "Developer tools"],
+    href: "https://github.com/nihitdev/yo-cli",
+  },
+  {
     title: "kairo",
+    label: "THE PERSONAL SETUP",
     description:
       "A personal terminal, shell, prompt, editor, theme, and desktop configuration system.",
     tags: ["Dotfiles", "Fish", "Zsh", "CSS"],
@@ -152,13 +161,6 @@ export const projects = [
       "Tiny interactive terminal demos for ANSI colors, Unicode, spinners, progress bars, gradients, and system info.",
     tags: ["Bash", "ANSI", "Unicode", "CLI"],
     href: "https://github.com/nihitdev/terminal-playground",
-  },
-  {
-    title: "yo-cli",
-    description:
-      "A small command-line companion for getting useful project workflows started quickly.",
-    tags: ["CLI", "Shell", "Developer tools"],
-    href: "https://github.com/nihitdev/yo-cli",
   },
   {
     title: "starship-presets",
